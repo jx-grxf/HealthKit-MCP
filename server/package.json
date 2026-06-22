@@ -1,0 +1,59 @@
+{
+  "name": "@jx-grxf/healthkit-mcp-server",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Read-only MCP server exposing Apple Health summaries (sleep, workouts, training load, trends) to agents.",
+  "type": "module",
+  "bin": {
+    "healthkit-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    ".env.example",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jx-grxf/HealthKit-MCP.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jx-grxf/HealthKit-MCP/issues"
+  },
+  "homepage": "https://johannesgrof.me/projects/healthkit-mcp/",
+  "scripts": {
+    "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",
+    "dev": "tsx src/index.ts",
+    "build": "npm run clean && tsc",
+    "postbuild": "node -e \"require('node:fs').chmodSync('dist/index.js', 0o755)\"",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "healthkit",
+    "apple-health",
+    "agent"
+  ],
+  "author": "Johannes Grof",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "@supabase/supabase-js": "^2.45.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.7.0",
+    "vitest": "^4.1.5"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
