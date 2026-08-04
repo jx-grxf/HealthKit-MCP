@@ -16,6 +16,11 @@
 
 ---
 
+<!-- DEMO: add a screen recording here — screen recording of an agent answering a question from your Health data
+     Record with ⌘⇧5, then: jx-grxf/tools/make-demo.sh <recording.mov> .
+<p align="center"><img src=".github/assets/demo.gif" alt="" width="720"></p>
+-->
+
 ## Why
 
 Apple Health is the richest personal-health dataset most people own, but it is locked on-device: there is no REST endpoint, no OAuth, no server-side token. The only way out is an iOS app that the user explicitly authorises. HealthKit MCP is that bridge — a small iPhone app that syncs **aggregates** (not raw samples) to an EU-region backend, and a read-only MCP server that lets any MCP-capable agent reason over them.
