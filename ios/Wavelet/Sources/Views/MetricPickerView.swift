@@ -29,6 +29,8 @@ struct MetricPickerView: View {
                         SyncStatusCard(status: status)
                     }
 
+                    AccountSection()
+
                     Section {
                         LabeledContent("Selected") {
                             Text(

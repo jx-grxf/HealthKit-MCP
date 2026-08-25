@@ -38,6 +38,10 @@ final class MetricSelection {
         consented[metric.key] != nil
     }
 
+    func consentedAt(_ metric: MetricDescriptor) -> Date? {
+        consented[metric.key]
+    }
+
     var enabledMetrics: [MetricDescriptor] {
         consented.keys.compactMap { MetricCatalog.byKey[$0] }.sorted { $0.name < $1.name }
     }
