@@ -1,0 +1,2679 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "AFib History": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vorhofflimmern-Verlauf"
+          }
+        }
+      }
+    },
+    "Abdominal Cramps": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bauchkrämpfe"
+          }
+        }
+      }
+    },
+    "Acne": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akne"
+          }
+        }
+      }
+    },
+    "Active Energy": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktive Energie"
+          }
+        }
+      }
+    },
+    "Activity": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktivität"
+          }
+        }
+      }
+    },
+    "Alcoholic Beverages": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alkoholische Getränke"
+          }
+        }
+      }
+    },
+    "Appetite Changes": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Appetitveränderungen"
+          }
+        }
+      }
+    },
+    "Assistants you connect can read what you share": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verbundene Assistenten können lesen, was du teilst"
+          }
+        }
+      }
+    },
+    "Audio Exposure Events": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lautstärke-Ereignisse"
+          }
+        }
+      }
+    },
+    "Authorize": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zugriff erlauben"
+          }
+        }
+      }
+    },
+    "Basal Body Temperature": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Basaltemperatur"
+          }
+        }
+      }
+    },
+    "Before you share anything": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bevor du etwas teilst"
+          }
+        }
+      }
+    },
+    "Biotin": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Biotin"
+          }
+        }
+      }
+    },
+    "Bladder Incontinence": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Blasenschwäche"
+          }
+        }
+      }
+    },
+    "Bleeding After Pregnancy": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Blutung nach Schwangerschaft"
+          }
+        }
+      }
+    },
+    "Bleeding During Pregnancy": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Blutung während Schwangerschaft"
+          }
+        }
+      }
+    },
+    "Bloating": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Blähbauch"
+          }
+        }
+      }
+    },
+    "Blood Alcohol Content": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Blutalkoholgehalt"
+          }
+        }
+      }
+    },
+    "Blood Glucose": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Blutzucker"
+          }
+        }
+      }
+    },
+    "Blood Oxygen": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Blutsauerstoff"
+          }
+        }
+      }
+    },
+    "Blood Pressure (Diastolic)": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Blutdruck (diastolisch)"
+          }
+        }
+      }
+    },
+    "Blood Pressure (Systolic)": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Blutdruck (systolisch)"
+          }
+        }
+      }
+    },
+    "Body Fat Percentage": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Körperfettanteil"
+          }
+        }
+      }
+    },
+    "Body Mass": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gewicht"
+          }
+        }
+      }
+    },
+    "Body Mass Index": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Body-Mass-Index"
+          }
+        }
+      }
+    },
+    "Body Measurements": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Körpermaße"
+          }
+        }
+      }
+    },
+    "Body Temperature": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Körpertemperatur"
+          }
+        }
+      }
+    },
+    "Body and Muscle Ache": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Körper- und Muskelschmerzen"
+          }
+        }
+      }
+    },
+    "Breast Pain": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Brustschmerzen"
+          }
+        }
+      }
+    },
+    "Breathing Disturbances": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atemstörungen im Schlaf"
+          }
+        }
+      }
+    },
+    "Caffeine": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Koffein"
+          }
+        }
+      }
+    },
+    "Calcium": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kalzium"
+          }
+        }
+      }
+    },
+    "Carbohydrates": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kohlenhydrate"
+          }
+        }
+      }
+    },
+    "Cardio Recovery": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kardio-Erholung"
+          }
+        }
+      }
+    },
+    "Categories": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kategorien"
+          }
+        }
+      }
+    },
+    "Cervical Mucus Quality": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zervixschleim"
+          }
+        }
+      }
+    },
+    "Chest Tightness or Pain": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Engegefühl oder Schmerzen in der Brust"
+          }
+        }
+      }
+    },
+    "Chills": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schüttelfrost"
+          }
+        }
+      }
+    },
+    "Chloride": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chlorid"
+          }
+        }
+      }
+    },
+    "Cholesterol": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cholesterin"
+          }
+        }
+      }
+    },
+    "Chromium": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chrom"
+          }
+        }
+      }
+    },
+    "Constipation": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verstopfung"
+          }
+        }
+      }
+    },
+    "Contraceptive": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verhütung"
+          }
+        }
+      }
+    },
+    "Copper": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kupfer"
+          }
+        }
+      }
+    },
+    "Coughing": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Husten"
+          }
+        }
+      }
+    },
+    "Couldn't ask for access": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zugriff konnte nicht angefragt werden"
+          }
+        }
+      }
+    },
+    "Cross-Country Skiing Distance": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Langlaufstrecke"
+          }
+        }
+      }
+    },
+    "Cross-Country Skiing Speed": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Langlaufgeschwindigkeit"
+          }
+        }
+      }
+    },
+    "Cycling Cadence": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trittfrequenz"
+          }
+        }
+      }
+    },
+    "Cycling Distance": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Radfahrstrecke"
+          }
+        }
+      }
+    },
+    "Cycling FTP": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Funktionelle Schwellenleistung"
+          }
+        }
+      }
+    },
+    "Cycling Power": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Radfahrleistung"
+          }
+        }
+      }
+    },
+    "Cycling Speed": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Radfahrgeschwindigkeit"
+          }
+        }
+      }
+    },
+    "Diarrhea": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Durchfall"
+          }
+        }
+      }
+    },
+    "Dietary Energy": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aufgenommene Energie"
+          }
+        }
+      }
+    },
+    "Dizziness": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schwindel"
+          }
+        }
+      }
+    },
+    "Double Support Time": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Doppelstandphase"
+          }
+        }
+      }
+    },
+    "Downhill Snow Sports Distance": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ski- und Snowboardstrecke"
+          }
+        }
+      }
+    },
+    "Dry Skin": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trockene Haut"
+          }
+        }
+      }
+    },
+    "Electrodermal Activity": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elektrodermale Aktivität"
+          }
+        }
+      }
+    },
+    "Enable all": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alle einschalten"
+          }
+        }
+      }
+    },
+    "Environmental Sound Levels": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Umgebungslautstärke"
+          }
+        }
+      }
+    },
+    "Environmental Sound Reduction": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reduzierung von Umgebungsgeräuschen"
+          }
+        }
+      }
+    },
+    "Estimated Workout Effort": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geschätzte Trainingsanstrengung"
+          }
+        }
+      }
+    },
+    "Everything is off until you switch it on.": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alles ist aus, bis du es einschaltest."
+          }
+        }
+      }
+    },
+    "Exercise Minutes": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bewegungsminuten"
+          }
+        }
+      }
+    },
+    "Fainting": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ohnmacht"
+          }
+        }
+      }
+    },
+    "Fatigue": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Müdigkeit"
+          }
+        }
+      }
+    },
+    "Fever": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fieber"
+          }
+        }
+      }
+    },
+    "Fiber": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ballaststoffe"
+          }
+        }
+      }
+    },
+    "Fitness": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fitness"
+          }
+        }
+      }
+    },
+    "Flights Climbed": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stockwerke"
+          }
+        }
+      }
+    },
+    "Folate": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Folsäure"
+          }
+        }
+      }
+    },
+    "Forced Expiratory Volume (1s)": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Einsekundenkapazität (FEV1)"
+          }
+        }
+      }
+    },
+    "Forced Vital Capacity": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Forcierte Vitalkapazität"
+          }
+        }
+      }
+    },
+    "Ground Contact Time": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bodenkontaktzeit"
+          }
+        }
+      }
+    },
+    "Hair Loss": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Haarausfall"
+          }
+        }
+      }
+    },
+    "Handwashing": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Händewaschen"
+          }
+        }
+      }
+    },
+    "Headache": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kopfschmerzen"
+          }
+        }
+      }
+    },
+    "Headphone Audio Levels": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kopfhörerlautstärke"
+          }
+        }
+      }
+    },
+    "Health access": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Health-Zugriff"
+          }
+        }
+      }
+    },
+    "Health data isn't available on this device.": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Auf diesem Gerät sind keine Gesundheitsdaten verfügbar."
+          }
+        }
+      }
+    },
+    "Hearing": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hören"
+          }
+        }
+      }
+    },
+    "Heart": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Herz"
+          }
+        }
+      }
+    },
+    "Heart Rate": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Herzfrequenz"
+          }
+        }
+      }
+    },
+    "Heart Rate Variability (SDNN)": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Herzfrequenzvariabilität (SDNN)"
+          }
+        }
+      }
+    },
+    "Heartburn": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sodbrennen"
+          }
+        }
+      }
+    },
+    "Height": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Körpergröße"
+          }
+        }
+      }
+    },
+    "High Heart Rate Events": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ereignisse mit hoher Herzfrequenz"
+          }
+        }
+      }
+    },
+    "Hot Flashes": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hitzewallungen"
+          }
+        }
+      }
+    },
+    "Hypertension Notifications": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bluthochdruck-Mitteilungen"
+          }
+        }
+      }
+    },
+    "I understand — choose what to share": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verstanden – auswählen, was geteilt wird"
+          }
+        }
+      }
+    },
+    "Infrequent Periods": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seltene Perioden"
+          }
+        }
+      }
+    },
+    "Inhaler Usage": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inhalator-Nutzung"
+          }
+        }
+      }
+    },
+    "Insulin Delivery": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Insulinabgabe"
+          }
+        }
+      }
+    },
+    "Intermenstrual Bleeding": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zwischenblutung"
+          }
+        }
+      }
+    },
+    "Iodine": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jod"
+          }
+        }
+      }
+    },
+    "Iron": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eisen"
+          }
+        }
+      }
+    },
+    "Irregular Cycles": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unregelmäßige Zyklen"
+          }
+        }
+      }
+    },
+    "Irregular Rhythm Events": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unregelmäßiger Rhythmus"
+          }
+        }
+      }
+    },
+    "Lab Results": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laborwerte"
+          }
+        }
+      }
+    },
+    "Lactation": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stillzeit"
+          }
+        }
+      }
+    },
+    "Last synced": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zuletzt übertragen"
+          }
+        }
+      }
+    },
+    "Lean Body Mass": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Magermasse"
+          }
+        }
+      }
+    },
+    "Loss of Smell": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geruchsverlust"
+          }
+        }
+      }
+    },
+    "Loss of Taste": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geschmacksverlust"
+          }
+        }
+      }
+    },
+    "Loud Environment Events": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laute Umgebung"
+          }
+        }
+      }
+    },
+    "Loud Headphone Events": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laute Kopfhörer"
+          }
+        }
+      }
+    },
+    "Low Cardio Fitness Events": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geringe Kardiofitness"
+          }
+        }
+      }
+    },
+    "Low Heart Rate Events": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ereignisse mit niedriger Herzfrequenz"
+          }
+        }
+      }
+    },
+    "Lower Back Pain": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schmerzen im unteren Rücken"
+          }
+        }
+      }
+    },
+    "Magnesium": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Magnesium"
+          }
+        }
+      }
+    },
+    "Manganese": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mangan"
+          }
+        }
+      }
+    },
+    "Memory Lapse": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gedächtnislücken"
+          }
+        }
+      }
+    },
+    "Menstrual Flow": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menstruationsfluss"
+          }
+        }
+      }
+    },
+    "Mindful Minutes": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Achtsamkeitsminuten"
+          }
+        }
+      }
+    },
+    "Mindfulness": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Achtsamkeit"
+          }
+        }
+      }
+    },
+    "Mobility": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mobilität"
+          }
+        }
+      }
+    },
+    "Molybdenum": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Molybdän"
+          }
+        }
+      }
+    },
+    "Monounsaturated Fat": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Einfach ungesättigte Fettsäuren"
+          }
+        }
+      }
+    },
+    "Mood Changes": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stimmungsschwankungen"
+          }
+        }
+      }
+    },
+    "Move Minutes": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bewegungszeit"
+          }
+        }
+      }
+    },
+    "Nausea": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Übelkeit"
+          }
+        }
+      }
+    },
+    "Never for advertising": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Niemals für Werbung"
+          }
+        }
+      }
+    },
+    "Never synced": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noch nie übertragen"
+          }
+        }
+      }
+    },
+    "Niacin": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Niacin"
+          }
+        }
+      }
+    },
+    "Night Sweats": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nachtschweiß"
+          }
+        }
+      }
+    },
+    "NikeFuel": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NikeFuel"
+          }
+        }
+      }
+    },
+    "Not connected": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nicht verbunden"
+          }
+        }
+      }
+    },
+    "Not requested yet": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noch nicht angefragt"
+          }
+        }
+      }
+    },
+    "Nothing is read from Health until you switch it on. Everything starts off.": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aus „Health“ wird nichts gelesen, bis du es einschaltest. Alles ist zu Beginn aus."
+          }
+        }
+      }
+    },
+    "Nothing selected yet": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noch nichts ausgewählt"
+          }
+        }
+      }
+    },
+    "Number of Times Fallen": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stürze"
+          }
+        }
+      }
+    },
+    "Nutrition": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ernährung"
+          }
+        }
+      }
+    },
+    "Other": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sonstiges"
+          }
+        }
+      }
+    },
+    "Ovulation Test Result": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ovulationstest"
+          }
+        }
+      }
+    },
+    "Paddle Sports Distance": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paddelstrecke"
+          }
+        }
+      }
+    },
+    "Paddle Sports Speed": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paddelgeschwindigkeit"
+          }
+        }
+      }
+    },
+    "Pantothenic Acid": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pantothensäure"
+          }
+        }
+      }
+    },
+    "Peak Expiratory Flow Rate": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Maximaler exspiratorischer Fluss"
+          }
+        }
+      }
+    },
+    "Pelvic Pain": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beckenschmerzen"
+          }
+        }
+      }
+    },
+    "Peripheral Perfusion Index": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Peripherer Perfusionsindex"
+          }
+        }
+      }
+    },
+    "Persistent Intermenstrual Bleeding": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anhaltende Zwischenblutungen"
+          }
+        }
+      }
+    },
+    "Phosphorus": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Phosphor"
+          }
+        }
+      }
+    },
+    "Physical Effort": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Körperliche Anstrengung"
+          }
+        }
+      }
+    },
+    "Polyunsaturated Fat": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mehrfach ungesättigte Fettsäuren"
+          }
+        }
+      }
+    },
+    "Potassium": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kalium"
+          }
+        }
+      }
+    },
+    "Pregnancy": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schwangerschaft"
+          }
+        }
+      }
+    },
+    "Pregnancy Test Result": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schwangerschaftstest"
+          }
+        }
+      }
+    },
+    "Progesterone Test Result": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Progesterontest"
+          }
+        }
+      }
+    },
+    "Prolonged Periods": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verlängerte Perioden"
+          }
+        }
+      }
+    },
+    "Protein": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Protein"
+          }
+        }
+      }
+    },
+    "Pushes": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anschübe"
+          }
+        }
+      }
+    },
+    "Rapid or Fluttering Heartbeat": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schneller oder flatternder Herzschlag"
+          }
+        }
+      }
+    },
+    "Reproductive Health": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reproduktive Gesundheit"
+          }
+        }
+      }
+    },
+    "Requested": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Angefragt"
+          }
+        }
+      }
+    },
+    "Respiratory": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atmung"
+          }
+        }
+      }
+    },
+    "Respiratory Rate": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atemfrequenz"
+          }
+        }
+      }
+    },
+    "Resting Energy": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ruheenergie"
+          }
+        }
+      }
+    },
+    "Resting Heart Rate": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ruhepuls"
+          }
+        }
+      }
+    },
+    "Riboflavin": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Riboflavin"
+          }
+        }
+      }
+    },
+    "Rowing Distance": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ruderstrecke"
+          }
+        }
+      }
+    },
+    "Rowing Speed": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rudergeschwindigkeit"
+          }
+        }
+      }
+    },
+    "Running Power": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laufleistung"
+          }
+        }
+      }
+    },
+    "Running Speed": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laufgeschwindigkeit"
+          }
+        }
+      }
+    },
+    "Running Stride Length": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schrittlänge beim Laufen"
+          }
+        }
+      }
+    },
+    "Runny Nose": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laufende Nase"
+          }
+        }
+      }
+    },
+    "Saturated Fat": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gesättigte Fettsäuren"
+          }
+        }
+      }
+    },
+    "Search health categories": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gesundheitskategorien suchen"
+          }
+        }
+      }
+    },
+    "Selected": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ausgewählt"
+          }
+        }
+      }
+    },
+    "Selenium": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selen"
+          }
+        }
+      }
+    },
+    "Sensitive": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensibel"
+          }
+        }
+      }
+    },
+    "Sensitive categories are never included in \"Enable all\" and must be switched on individually.": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensible Kategorien sind bei „Alle einschalten“ nie dabei und müssen einzeln aktiviert werden."
+          }
+        }
+      }
+    },
+    "Sexual Activity": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sexuelle Aktivität"
+          }
+        }
+      }
+    },
+    "Shared with assistants": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mit Assistenten geteilt"
+          }
+        }
+      }
+    },
+    "Shortness of Breath": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kurzatmigkeit"
+          }
+        }
+      }
+    },
+    "Sign in to start syncing your summaries.": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Melde dich an, um deine Zusammenfassungen zu übertragen."
+          }
+        }
+      }
+    },
+    "Sinus Congestion": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verstopfte Nebenhöhlen"
+          }
+        }
+      }
+    },
+    "Six-Minute Walk Distance": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gehstrecke in 6 Minuten"
+          }
+        }
+      }
+    },
+    "Skating Sports Distance": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Skatingstrecke"
+          }
+        }
+      }
+    },
+    "Skipped Heartbeat": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Herzstolpern"
+          }
+        }
+      }
+    },
+    "Sleep": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schlaf"
+          }
+        }
+      }
+    },
+    "Sleep Analysis": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schlafanalyse"
+          }
+        }
+      }
+    },
+    "Sleep Apnea Notifications": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schlafapnoe-Mitteilungen"
+          }
+        }
+      }
+    },
+    "Sleep Changes": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Veränderter Schlaf"
+          }
+        }
+      }
+    },
+    "Sodium": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Natrium"
+          }
+        }
+      }
+    },
+    "Sore Throat": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halsschmerzen"
+          }
+        }
+      }
+    },
+    "Stair Ascent Speed": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geschwindigkeit beim Treppensteigen"
+          }
+        }
+      }
+    },
+    "Stair Descent Speed": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geschwindigkeit beim Treppabgehen"
+          }
+        }
+      }
+    },
+    "Stand Hours": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stehstunden"
+          }
+        }
+      }
+    },
+    "Stand Minutes": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stehminuten"
+          }
+        }
+      }
+    },
+    "Steps": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schritte"
+          }
+        }
+      }
+    },
+    "Sugar": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zucker"
+          }
+        }
+      }
+    },
+    "Summaries only": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nur Zusammenfassungen"
+          }
+        }
+      }
+    },
+    "Swimming Distance": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schwimmstrecke"
+          }
+        }
+      }
+    },
+    "Swimming Strokes": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schwimmzüge"
+          }
+        }
+      }
+    },
+    "Switch a category off and it stops syncing and becomes unreadable to assistants immediately.": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schalte eine Kategorie aus – sie wird sofort nicht mehr übertragen und ist für Assistenten nicht mehr lesbar."
+          }
+        }
+      }
+    },
+    "Symptoms": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Symptome"
+          }
+        }
+      }
+    },
+    "Sync": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Synchronisierung"
+          }
+        }
+      }
+    },
+    "Sync failed": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Übertragung fehlgeschlagen"
+          }
+        }
+      }
+    },
+    "Sync now": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jetzt übertragen"
+          }
+        }
+      }
+    },
+    "Syncing…": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wird übertragen…"
+          }
+        }
+      }
+    },
+    "That means ChatGPT, Claude, and any other assistant you connect. They receive daily summaries — never your raw Health records.": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Das gilt für ChatGPT, Claude und jeden weiteren Assistenten, den du verbindest. Sie erhalten Tageszusammenfassungen – niemals deine rohen Health-Daten."
+          }
+        }
+      }
+    },
+    "Thiamin": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thiamin"
+          }
+        }
+      }
+    },
+    "Time in Daylight": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zeit im Tageslicht"
+          }
+        }
+      }
+    },
+    "Toothbrushing": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zähneputzen"
+          }
+        }
+      }
+    },
+    "Total Fat": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fett gesamt"
+          }
+        }
+      }
+    },
+    "Turn off all": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alle ausschalten"
+          }
+        }
+      }
+    },
+    "UV Index": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "UV-Index"
+          }
+        }
+      }
+    },
+    "Underwater Depth": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tauchtiefe"
+          }
+        }
+      }
+    },
+    "VO2 Max": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "VO2max"
+          }
+        }
+      }
+    },
+    "Vaginal Dryness": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vaginale Trockenheit"
+          }
+        }
+      }
+    },
+    "Vertical Oscillation": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vertikale Bewegung"
+          }
+        }
+      }
+    },
+    "Vitals": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vitalzeichen"
+          }
+        }
+      }
+    },
+    "Vitamin A": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vitamin A"
+          }
+        }
+      }
+    },
+    "Vitamin B12": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vitamin B12"
+          }
+        }
+      }
+    },
+    "Vitamin B6": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vitamin B6"
+          }
+        }
+      }
+    },
+    "Vitamin C": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vitamin C"
+          }
+        }
+      }
+    },
+    "Vitamin D": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vitamin D"
+          }
+        }
+      }
+    },
+    "Vitamin E": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vitamin E"
+          }
+        }
+      }
+    },
+    "Vitamin K": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vitamin K"
+          }
+        }
+      }
+    },
+    "Vomiting": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Erbrechen"
+          }
+        }
+      }
+    },
+    "Waist Circumference": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Taillenumfang"
+          }
+        }
+      }
+    },
+    "Walking + Running Distance": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geh- und Laufstrecke"
+          }
+        }
+      }
+    },
+    "Walking Asymmetry": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gehasymmetrie"
+          }
+        }
+      }
+    },
+    "Walking Heart Rate Average": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Durchschnittliche Herzfrequenz beim Gehen"
+          }
+        }
+      }
+    },
+    "Walking Speed": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gehgeschwindigkeit"
+          }
+        }
+      }
+    },
+    "Walking Steadiness": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gehstabilität"
+          }
+        }
+      }
+    },
+    "Walking Steadiness Events": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gehstabilitäts-Mitteilungen"
+          }
+        }
+      }
+    },
+    "Walking Step Length": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schrittlänge"
+          }
+        }
+      }
+    },
+    "Water": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wasser"
+          }
+        }
+      }
+    },
+    "Water Temperature": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wassertemperatur"
+          }
+        }
+      }
+    },
+    "Wavelet totals each day on your iPhone and syncs the totals. Individual measurements never leave the device.": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wavelet fasst jeden Tag auf deinem iPhone zusammen und überträgt nur diese Summen. Einzelne Messwerte verlassen das Gerät nie."
+          }
+        }
+      }
+    },
+    "Wheelchair Distance": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rollstuhlstrecke"
+          }
+        }
+      }
+    },
+    "Wheezing": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pfeifende Atmung"
+          }
+        }
+      }
+    },
+    "Workout Effort Score": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trainingsanstrengung"
+          }
+        }
+      }
+    },
+    "Workouts": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trainings"
+          }
+        }
+      }
+    },
+    "Wrist Temperature": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Handgelenktemperatur"
+          }
+        }
+      }
+    },
+    "You can stop at any time": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Du kannst jederzeit aufhören"
+          }
+        }
+      }
+    },
+    "You choose every category": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Du wählst jede Kategorie selbst"
+          }
+        }
+      }
+    },
+    "Your health data is never used for advertising, marketing, or profiling, and is never sold.": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deine Gesundheitsdaten werden nie für Werbung, Marketing oder Profiling verwendet und nie verkauft."
+          }
+        }
+      }
+    },
+    "Zinc": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zink"
+          }
+        }
+      }
+    },
+    "iOS never reveals whether read access was granted. Wavelet shows what it can actually read once data arrives.": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iOS gibt nie preis, ob Lesezugriff gewährt wurde. Wavelet zeigt erst dann, was es wirklich lesen kann, wenn Daten ankommen."
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}
