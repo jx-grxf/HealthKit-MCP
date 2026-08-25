@@ -13,8 +13,11 @@
 
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import type {
+  AccessEntry,
   Aggregation,
   DailyHealth,
+  HealthOverview,
+  MetricSummary,
   HealthStore,
   MetricInfo,
   MetricValue,
@@ -38,21 +41,72 @@ export class SupabaseStore implements HealthStore {
   }
 
   async listMetrics(userId: string): Promise<MetricInfo[]> {
-    const { data, error } = await this.db
-      .from("shared_metrics")
-      .select("*")
-      .eq("user_id", userId)
-      .order("category", { ascending: true })
-      .order("metric_key", { ascending: true });
+    const { data, error } = await this.db.rpc("metric_availability", {
+      p_user_id: userId,
+    });
     if (error) throw error;
-    return (data ?? []).map((r: Record<string, unknown>) => ({
+    return ((data ?? []) as Array<Record<string, unknown>>).map((r) => ({
       metricKey: String(r.metric_key),
       displayName: String(r.display_name),
       category: String(r.category),
-      unit: (r.canonical_unit as string) ?? null,
+      unit: (r.unit as string) ?? null,
       aggregation: r.aggregation as Aggregation,
       sensitivity: r.sensitivity as Sensitivity,
+      hasData: Boolean(r.has_data),
+      firstDate: (r.first_date as string) ?? null,
+      lastDate: (r.last_date as string) ?? null,
+      dayCount: Number(r.day_count ?? 0),
     }));
+  }
+
+  async logAccess(entry: AccessEntry): Promise<void> {
+    // Deliberately swallows failures. The audit trail is for the user's benefit;
+    // losing one line is far better than failing a read they asked for.
+    try {
+      await this.db.from("mcp_access_log").insert({
+        user_id: entry.userId,
+        tool: entry.tool,
+        params: entry.params,
+        client: entry.client,
+      });
+    } catch {
+      // ignored on purpose
+    }
+  }
+
+  async overview(userId: string, windowDays: number): Promise<HealthOverview> {
+    const { data, error } = await this.db.rpc("metric_overview", {
+      p_user_id: userId,
+      p_days: windowDays,
+    });
+    if (error) throw error;
+
+    const byCategory: Record<string, MetricSummary[]> = {};
+    for (const r of (data ?? []) as Array<Record<string, unknown>>) {
+      const category = String(r.category);
+      (byCategory[category] ??= []).push({
+        metricKey: String(r.metric_key),
+        displayName: String(r.display_name),
+        category,
+        unit: String(r.unit),
+        latestDate: (r.latest_date as string) ?? null,
+        latest: num(r.latest),
+        average7: round2opt(num(r.average_7)),
+        average30: round2opt(num(r.average_30)),
+        minimum: num(r.minimum),
+        maximum: num(r.maximum),
+        dayCount: Number(r.day_count ?? 0),
+      });
+    }
+
+    // Fetched together so one question costs one round trip.
+    const [sleep, recentWorkouts, trainingLoad] = await Promise.all([
+      this.sleep(userId, { days: Math.min(windowDays, 90) }),
+      this.recentWorkouts(userId, { limit: 20 }),
+      this.trainingLoad(userId, 7),
+    ]);
+
+    return { windowDays, byCategory, sleep, recentWorkouts, trainingLoad };
   }
 
   async dailySummary(userId: string, date?: string): Promise<DailyHealth | null> {
@@ -148,21 +202,28 @@ export class SupabaseStore implements HealthStore {
 
   async trends(
     userId: string,
-    metricKey: string,
+    metricKeys: string[],
     windowDays: number,
-  ): Promise<TrendPoint[]> {
+  ): Promise<Record<string, TrendPoint[]>> {
+    // One query for every requested metric rather than one per metric.
     const { data, error } = await this.db
       .from("shared_metric_days")
-      .select("date, value")
+      .select("date, value, metric_key")
       .eq("user_id", userId)
-      .eq("metric_key", metricKey)
+      .in("metric_key", metricKeys)
       .gte("date", isoDaysAgo(windowDays))
       .order("date", { ascending: true });
     if (error) throw error;
-    return ((data ?? []) as Array<Record<string, unknown>>).map((r) => ({
-      date: String(r.date),
-      value: num(r.value),
-    }));
+
+    // Requested-but-absent metrics get an empty series, so the caller can tell
+    // "nothing recorded" from "never asked for".
+    const out: Record<string, TrendPoint[]> = {};
+    for (const key of metricKeys) out[key] = [];
+    for (const r of (data ?? []) as Array<Record<string, unknown>>) {
+      const key = String(r.metric_key);
+      (out[key] ??= []).push({ date: String(r.date), value: num(r.value) });
+    }
+    return out;
   }
 }
 
@@ -174,6 +235,11 @@ function isoDaysAgo(n: number): string {
 
 function avg(xs: number[]): number {
   return xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : 0;
+}
+
+/** Rounds a nullable average for display without inventing a value. */
+function round2opt(n: number | null): number | null {
+  return n === null ? null : Math.round(n * 100) / 100;
 }
 
 function round2(n: number): number {
@@ -191,7 +257,10 @@ function mapMetricValue(r: Record<string, unknown>): MetricValue {
     category: String(r.category),
     unit: String(r.unit),
     value: num(r.value),
-    sampleCount: Number(r.sample_count ?? 0),
+    // null means unknown: HealthKit statistics do not report how many samples
+    // they aggregated. Coercing that to 0 read as "no samples".
+    sampleCount: r.sample_count == null ? null : Number(r.sample_count),
+    sources: (r.sources as string[]) ?? null,
   };
 }
 

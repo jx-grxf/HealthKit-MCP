@@ -32,6 +32,14 @@ struct MetricPickerView: View {
                     AccountSection()
 
                     Section {
+                        NavigationLink {
+                            ConnectGuideView()
+                        } label: {
+                            Label("Connect an assistant", systemImage: "link")
+                        }
+                    }
+
+                    Section {
                         LabeledContent("Selected") {
                             Text(
                                 "\(selection.enabledCount) / \(MetricCatalog.available.count)"

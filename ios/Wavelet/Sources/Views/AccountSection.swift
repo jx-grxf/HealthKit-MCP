@@ -11,6 +11,7 @@ struct AccountSection: View {
     @Environment(MetricSelection.self) private var selection
     @Environment(SyncStatus.self) private var status
     @Environment(HealthSync.self) private var sync
+    @Environment(\.colorScheme) private var colorScheme
 
     var body: some View {
         Section("Account") {
@@ -33,9 +34,11 @@ struct AccountSection: View {
                 } onCompletion: { result in
                     Task { await account.complete(result) }
                 }
-                .signInWithAppleButtonStyle(.black)
-                .frame(height: 46)
-                .listRowInsets(EdgeInsets())
+                // Apple's own asset: black on light, white on dark. Fixed to
+                // .black it disappears against a dark List background.
+                .signInWithAppleButtonStyle(colorScheme == .dark ? .white : .black)
+                .frame(height: 48)
+                .padding(.vertical, 4)
             }
 
             if let error = account.lastError {

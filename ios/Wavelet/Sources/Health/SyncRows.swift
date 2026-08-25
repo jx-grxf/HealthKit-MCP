@@ -20,7 +20,8 @@ struct MetricDayRow: Encodable, Sendable {
     let value_max: Double?
     let value_latest: Double?
     let duration_minutes: Double?
-    let sample_count: Int
+    let sample_count: Int?
+    let sources: [String]?
 }
 
 struct SleepNightRow: Encodable, Sendable {

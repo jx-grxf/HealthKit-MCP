@@ -33,6 +33,45 @@ export interface MetricInfo {
   unit: string | null;
   aggregation: Aggregation;
   sensitivity: Sensitivity;
+  /** Whether any data has actually arrived. Sharing a metric and having data
+   *  for it are different facts; conflating them made two thirds of the list
+   *  look populated when it was empty. */
+  hasData: boolean;
+  firstDate: string | null;
+  lastDate: string | null;
+  dayCount: number;
+}
+
+/** One metric summarised over a window. */
+export interface MetricSummary {
+  metricKey: string;
+  displayName: string;
+  category: string;
+  unit: string;
+  latestDate: string | null;
+  latest: number | null;
+  average7: number | null;
+  average30: number | null;
+  minimum: number | null;
+  maximum: number | null;
+  dayCount: number;
+}
+
+/** One agent read, for the user's own audit trail. */
+export interface AccessEntry {
+  userId: string;
+  tool: string;
+  params: Record<string, unknown>;
+  client: string | null;
+}
+
+/** Everything an agent needs to answer a broad question in one call. */
+export interface HealthOverview {
+  windowDays: number;
+  byCategory: Record<string, MetricSummary[]>;
+  sleep: SleepNight[];
+  recentWorkouts: Workout[];
+  trainingLoad: TrainingLoad;
 }
 
 export interface MetricValue {
@@ -42,7 +81,12 @@ export interface MetricValue {
   unit: string;
   /** Canonical value for the day, chosen by the metric's aggregation rule. */
   value: number | null;
-  sampleCount: number;
+  /** Number of HealthKit samples behind the value, or null when unknown —
+   *  statistics collections do not report it. */
+  sampleCount: number | null;
+  /** Apps or devices the samples came from, when known. Lets an agent judge
+   *  whether a figure is trustworthy or partial. */
+  sources: string[] | null;
 }
 
 export interface DailyHealth {
@@ -96,6 +140,11 @@ export interface TrainingLoad {
 export interface HealthStore {
   /** Metrics this user shares. The catalogue of everything else stays hidden. */
   listMetrics(userId: string): Promise<MetricInfo[]>;
+  /** Whole-picture summary, so broad questions cost one call, not 133. */
+  overview(userId: string, windowDays: number): Promise<HealthOverview>;
+  /** Records that an agent read something. Never throws: an audit failure must
+   *  not turn a successful read into an error the user sees. */
+  logAccess(entry: AccessEntry): Promise<void>;
   dailySummary(userId: string, date?: string): Promise<DailyHealth | null>;
   sleep(
     userId: string,
@@ -106,9 +155,10 @@ export interface HealthStore {
     opts: { limit: number; type?: string },
   ): Promise<Workout[]>;
   trainingLoad(userId: string, windowDays: number): Promise<TrainingLoad>;
+  /** Series for one or more metrics. */
   trends(
     userId: string,
-    metricKey: string,
+    metricKeys: string[],
     windowDays: number,
-  ): Promise<TrendPoint[]>;
+  ): Promise<Record<string, TrendPoint[]>>;
 }

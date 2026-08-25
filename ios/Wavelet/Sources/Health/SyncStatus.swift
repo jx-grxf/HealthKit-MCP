@@ -35,9 +35,30 @@ final class SyncStatus {
         }
     }
 
+    private static let lastSyncKey = "wavelet.lastSync.v1"
+
     init() {
         hasRequestedHealthAccess =
             UserDefaults.standard.bool(forKey: "wavelet.healthRequested.v1")
+    }
+
+    /// Restores the card after a cold launch.
+    ///
+    /// The state used to start at `.notConfigured` and nothing ever corrected
+    /// it, so a signed-in user who had already synced was told to sign in again
+    /// every time the app restarted.
+    func restore(isSignedIn: Bool) {
+        guard isSignedIn else {
+            state = .notConfigured
+            return
+        }
+        let stored = UserDefaults.standard.double(forKey: Self.lastSyncKey)
+        state = .idle(lastSync: stored > 0 ? Date(timeIntervalSince1970: stored) : nil)
+    }
+
+    func recordSync(at date: Date) {
+        UserDefaults.standard.set(date.timeIntervalSince1970, forKey: Self.lastSyncKey)
+        state = .idle(lastSync: date)
     }
 
     var title: String {
