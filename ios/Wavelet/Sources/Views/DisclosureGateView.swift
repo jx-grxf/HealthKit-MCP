@@ -46,7 +46,10 @@ struct DisclosureGateView: View {
         }
     }
 
-    private func point(_ title: String, _ body: String) -> some View {
+    // LocalizedStringKey, not String: `Text(aString)` renders verbatim and
+    // silently skips the String Catalog, which is how these paragraphs stayed
+    // English while the literals around them translated.
+    private func point(_ title: LocalizedStringKey, _ body: LocalizedStringKey) -> some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(title).font(.headline)
             Text(body).font(.subheadline).foregroundStyle(.secondary)
