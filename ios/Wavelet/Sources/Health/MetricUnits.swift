@@ -12,12 +12,15 @@ enum MetricUnits {
         guard let canonical else { return nil }
         switch canonical {
         case "count":        return .count()
+        case "effortScore":
+            if #available(iOS 18.0, *) { return .appleEffortScore() } else { return nil }
         case "kcal":         return .kilocalorie()
         case "m":            return .meter()
         case "cm":           return .meterUnit(with: .centi)
         case "min":          return .minute()
         case "ms":           return .secondUnit(with: .milli)
-        case "percent":      return .percent()
+        // HealthKit's percent unit yields a 0–1 ratio; see `scale`.
+        case "%":            return .percent()
         case "degC":         return .degreeCelsius()
         case "kg":           return .gramUnit(with: .kilo)
         case "g":            return .gram()
@@ -44,6 +47,21 @@ enum MetricUnits {
         default:
             return nil
         }
+    }
+
+    /// Factor applied to HealthKit's raw value before storing.
+    ///
+    /// `HKUnit.percent()` measures a fraction, so oxygen saturation comes back
+    /// as 0.97 and double-support as 0.27. Stored unscaled next to a unit
+    /// labelled "%", that reads as 0.27 % — off by two orders of magnitude.
+    static func scale(for canonical: String?) -> Double {
+        canonical == "%" ? 100 : 1
+    }
+
+    /// Whole-number metrics. Cumulative sums are apportioned across day
+    /// boundaries, which yields things like 8117.6068 steps.
+    static func isWholeNumber(_ canonical: String?) -> Bool {
+        canonical == "count"
     }
 
     /// Which statistic HealthKit should compute for a metric.

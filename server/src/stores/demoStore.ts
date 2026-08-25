@@ -13,6 +13,8 @@
 
 import type {
   DailyHealth,
+  HealthOverview,
+  MetricSummary,
   HealthStore,
   MetricInfo,
   MetricValue,
@@ -25,7 +27,7 @@ import type {
 const WORKOUT_TYPES = ["running", "cycling", "strength", "walking"] as const;
 
 /** What the demo user shares, plus the range each value is generated in. */
-interface DemoMetric extends MetricInfo {
+interface DemoMetric extends Omit<MetricInfo, "hasData" | "firstDate" | "lastDate" | "dayCount"> {
   min: number;
   max: number;
 }
@@ -79,6 +81,7 @@ function metricValueFor(metric: DemoMetric, date: string): MetricValue {
     unit: metric.unit ?? "count",
     value: valueFor(metric, date),
     sampleCount: 1 + Math.round(seed(`${date}:${metric.metricKey}:n`) * 20),
+    sources: ["Demo"],
   };
 }
 
@@ -114,7 +117,46 @@ export class DemoStore implements HealthStore {
   }
 
   async listMetrics(_userId: string): Promise<MetricInfo[]> {
-    return DEMO_METRICS.map(({ min: _min, max: _max, ...info }) => info);
+    const first = ymd(dateNDaysAgo(this.reference, 30));
+    return DEMO_METRICS.map(({ min: _min, max: _max, ...info }) => ({
+      ...info,
+      hasData: true,
+      firstDate: first,
+      lastDate: this.latestDate(),
+      dayCount: 30,
+    }));
+  }
+
+  async overview(userId: string, windowDays: number): Promise<HealthOverview> {
+    const byCategory: Record<string, MetricSummary[]> = {};
+    for (const metric of DEMO_METRICS) {
+      const series = await this.trends(userId, [metric.metricKey], windowDays);
+      const values = (series[metric.metricKey] ?? [])
+        .map((p) => p.value)
+        .filter((v): v is number => v !== null);
+      const mean = (xs: number[]) =>
+        xs.length ? Math.round((xs.reduce((a, b) => a + b, 0) / xs.length) * 100) / 100 : null;
+      (byCategory[metric.category] ??= []).push({
+        metricKey: metric.metricKey,
+        displayName: metric.displayName,
+        category: metric.category,
+        unit: metric.unit ?? "count",
+        latestDate: this.latestDate(),
+        latest: values.at(-1) ?? null,
+        average7: mean(values.slice(-7)),
+        average30: mean(values.slice(-30)),
+        minimum: values.length ? Math.min(...values) : null,
+        maximum: values.length ? Math.max(...values) : null,
+        dayCount: values.length,
+      });
+    }
+    return {
+      windowDays,
+      byCategory,
+      sleep: await this.sleep(userId, { days: Math.min(windowDays, 90) }),
+      recentWorkouts: await this.recentWorkouts(userId, { limit: 20 }),
+      trainingLoad: await this.trainingLoad(userId, 7),
+    };
   }
 
   async dailySummary(_userId: string, date?: string): Promise<DailyHealth> {
@@ -195,17 +237,24 @@ export class DemoStore implements HealthStore {
 
   async trends(
     _userId: string,
-    metricKey: string,
+    metricKeys: string[],
     windowDays: number,
-  ): Promise<TrendPoint[]> {
-    const metric = BY_KEY.get(metricKey);
-    // Unknown or un-shared metric: no series, mirroring production behaviour
-    // where the consent join simply returns nothing.
-    if (!metric) return [];
-    const out: TrendPoint[] = [];
-    for (let i = windowDays; i >= 1; i--) {
-      const date = ymd(dateNDaysAgo(this.reference, i));
-      out.push({ date, value: valueFor(metric, date) });
+  ): Promise<Record<string, TrendPoint[]>> {
+    const out: Record<string, TrendPoint[]> = {};
+    for (const key of metricKeys) {
+      const metric = BY_KEY.get(key);
+      // Unknown or un-shared metric: empty series, mirroring production where
+      // the consent join simply returns nothing.
+      if (!metric) {
+        out[key] = [];
+        continue;
+      }
+      const points: TrendPoint[] = [];
+      for (let i = windowDays; i >= 1; i--) {
+        const date = ymd(dateNDaysAgo(this.reference, i));
+        points.push({ date, value: valueFor(metric, date) });
+      }
+      out[key] = points;
     }
     return out;
   }

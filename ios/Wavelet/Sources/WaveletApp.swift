@@ -14,7 +14,10 @@ struct WaveletApp: App {
                 .environment(syncStatus)
                 .environment(account)
                 .environment(sync)
-                .task { await account.restoreSession() }
+                .task {
+                    await account.restoreSession()
+                    syncStatus.restore(isSignedIn: account.isSignedIn)
+                }
         }
     }
 }

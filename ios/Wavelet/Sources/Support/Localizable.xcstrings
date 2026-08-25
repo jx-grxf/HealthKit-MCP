@@ -23,6 +23,17 @@
         }
       }
     },
+    "Account": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Account"
+          }
+        }
+      }
+    },
     "Acne": {
       "extractionState": "manual",
       "localizations": {
@@ -56,6 +67,17 @@
         }
       }
     },
+    "Address": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adresse"
+          }
+        }
+      }
+    },
     "Alcoholic Beverages": {
       "extractionState": "manual",
       "localizations": {
@@ -74,6 +96,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Appetitveränderungen"
+          }
+        }
+      }
+    },
+    "Apple Account": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple-Account"
+          }
+        }
+      }
+    },
+    "Ask: \"Which health metrics am I sharing?\"": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Frag: „Welche Gesundheitsdaten teile ich?“"
           }
         }
       }
@@ -397,6 +441,17 @@
         }
       }
     },
+    "ChatGPT": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ChatGPT"
+          }
+        }
+      }
+    },
     "Chest Tightness or Pain": {
       "extractionState": "manual",
       "localizations": {
@@ -441,6 +496,28 @@
         }
       }
     },
+    "Choose Add custom connector.": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wähle „Eigenen Konnektor hinzufügen“."
+          }
+        }
+      }
+    },
+    "Choose Create, paste the address above.": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wähle „Erstellen“ und füge die Adresse oben ein."
+          }
+        }
+      }
+    },
     "Chromium": {
       "extractionState": "manual",
       "localizations": {
@@ -448,6 +525,39 @@
           "stringUnit": {
             "state": "translated",
             "value": "Chrom"
+          }
+        }
+      }
+    },
+    "Claude": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Claude"
+          }
+        }
+      }
+    },
+    "Confirm, then approve the Wavelet consent screen.": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bestätige und stimme dann dem Wavelet-Zustimmungsbildschirm zu."
+          }
+        }
+      }
+    },
+    "Connect an assistant": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Assistenten verbinden"
           }
         }
       }
@@ -474,6 +584,17 @@
         }
       }
     },
+    "Copied": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kopiert"
+          }
+        }
+      }
+    },
     "Copper": {
       "extractionState": "manual",
       "localizations": {
@@ -481,6 +602,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Kupfer"
+          }
+        }
+      }
+    },
+    "Copy address": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adresse kopieren"
           }
         }
       }
@@ -1475,6 +1607,28 @@
         }
       }
     },
+    "Open Settings, then Apps & Connectors.": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Öffne die Einstellungen, dann „Apps & Konnektoren“."
+          }
+        }
+      }
+    },
+    "Open Settings, then Connectors.": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Öffne die Einstellungen, dann „Konnektoren“."
+          }
+        }
+      }
+    },
     "Other": {
       "extractionState": "manual",
       "localizations": {
@@ -1526,6 +1680,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Pantothensäure"
+          }
+        }
+      }
+    },
+    "Paste the address above and continue.": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Füge die Adresse oben ein und fahre fort."
           }
         }
       }
@@ -1948,6 +2113,50 @@
         }
       }
     },
+    "Sign in with Apple and approve access.": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Melde dich mit Apple an und erlaube den Zugriff."
+          }
+        }
+      }
+    },
+    "Sign out": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abmelden"
+          }
+        }
+      }
+    },
+    "Signed in": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Angemeldet"
+          }
+        }
+      }
+    },
+    "Signing in with your Apple Account is part of connecting. The assistant never sees your password, and only reads the categories you switched on.": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die Anmeldung mit deinem Apple-Account gehört zum Verbinden dazu. Der Assistent sieht nie dein Passwort und liest nur die Kategorien, die du eingeschaltet hast."
+          }
+        }
+      }
+    },
     "Sinus Congestion": {
       "extractionState": "manual",
       "localizations": {
@@ -2168,6 +2377,17 @@
         }
       }
     },
+    "Switch a category off here and it becomes unreadable to every connected assistant immediately — you do not need to disconnect anything.": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schalte eine Kategorie hier aus – sie ist sofort für jeden verbundenen Assistenten nicht mehr lesbar. Du musst nichts trennen."
+          }
+        }
+      }
+    },
     "Symptoms": {
       "extractionState": "manual",
       "localizations": {
@@ -2234,6 +2454,17 @@
         }
       }
     },
+    "Then: \"How was my sleep last week?\"": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dann: „Wie war mein Schlaf letzte Woche?“"
+          }
+        }
+      }
+    },
     "Thiamin": {
       "extractionState": "manual",
       "localizations": {
@@ -2278,6 +2509,17 @@
         }
       }
     },
+    "Try it": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ausprobieren"
+          }
+        }
+      }
+    },
     "Turn off all": {
       "extractionState": "manual",
       "localizations": {
@@ -2285,6 +2527,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Alle ausschalten"
+          }
+        }
+      }
+    },
+    "Turn on Developer mode under Advanced.": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktiviere den Entwicklermodus unter „Erweitert“."
           }
         }
       }

@@ -17,6 +17,7 @@
 		3CFA96F7BA21C1558CC16EFA /* MetricPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2728578EE26B525DA5A7CC7C /* MetricPickerView.swift */; };
 		5065DB1D8A0961F29BEA6FFC /* MetricSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9167E3A408148F7C8D5CB97 /* MetricSelection.swift */; };
 		5AA1ADBBD7318802DEEA0B9E /* SyncRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A586D755CDDE9462E3629C /* SyncRows.swift */; };
+		5E20C556B967757D002749B3 /* ConnectGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3934199693E70C8EA9132EA /* ConnectGuideView.swift */; };
 		74697963952A0DFCB092E342 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = E40D8A313FEF5E3D4601A10E /* Supabase */; };
 		7E91BBDBB67D6DD9431FC696 /* MetricUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64C7555EA90285B72EED6D1 /* MetricUnits.swift */; };
 		A4766B7605793DAC2A98A44C /* AccountSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF9CEA0CF7829BF9A6D3124 /* AccountSection.swift */; };
@@ -24,6 +25,8 @@
 		B317865AEBCB123CBDC5F307 /* AccountStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5EEBE26C922F9F9461682 /* AccountStore.swift */; };
 		B92A1BE01BB184DC465C4B0D /* SyncStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36553AAF381017A74F7645A3 /* SyncStatus.swift */; };
 		CB824554CB8125267B35B757 /* Backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C06CE6CF8A53B0B8AC1BDA7 /* Backend.swift */; };
+		CD6D6E66816F872D65857EE2 /* SyncLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA5A2E77B1C3BC4B643693 /* SyncLog.swift */; };
+		F42AEEE4E15017B77E107FA9 /* CategorySync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74A43452B351C1A42356B5 /* CategorySync.swift */; };
 		FBD546E8CF0A69B708AF07FB /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D2C8BF5671881B10E96292 /* RootView.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,8 +41,11 @@
 		55A27277D6B5C3684593F23D /* MetricCatalog.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricCatalog.generated.swift; sourceTree = "<group>"; };
 		785F9C270D86337EE0936F9B /* HealthAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthAccess.swift; sourceTree = "<group>"; };
 		88F65C5E84E0D4188346AFFE /* SyncStatusCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncStatusCard.swift; sourceTree = "<group>"; };
+		8C74A43452B351C1A42356B5 /* CategorySync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySync.swift; sourceTree = "<group>"; };
 		94266C7664FEB783669C5212 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A7FD08DB52BB24A5575CE90C /* Wavelet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wavelet.entitlements; sourceTree = "<group>"; };
+		B3934199693E70C8EA9132EA /* ConnectGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectGuideView.swift; sourceTree = "<group>"; };
+		B5BA5A2E77B1C3BC4B643693 /* SyncLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncLog.swift; sourceTree = "<group>"; };
 		BFA020D8EC59095C8EF1BFE8 /* DisclosureGateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclosureGateView.swift; sourceTree = "<group>"; };
 		C9167E3A408148F7C8D5CB97 /* MetricSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricSelection.swift; sourceTree = "<group>"; };
 		D64C7555EA90285B72EED6D1 /* MetricUnits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricUnits.swift; sourceTree = "<group>"; };
@@ -65,11 +71,13 @@
 		03197961877DB974380B06C1 /* Health */ = {
 			isa = PBXGroup;
 			children = (
+				8C74A43452B351C1A42356B5 /* CategorySync.swift */,
 				785F9C270D86337EE0936F9B /* HealthAccess.swift */,
 				DB00AFC61FBB6F79500B728D /* HealthSync.swift */,
 				55A27277D6B5C3684593F23D /* MetricCatalog.generated.swift */,
 				C9167E3A408148F7C8D5CB97 /* MetricSelection.swift */,
 				D64C7555EA90285B72EED6D1 /* MetricUnits.swift */,
+				B5BA5A2E77B1C3BC4B643693 /* SyncLog.swift */,
 				E0A586D755CDDE9462E3629C /* SyncRows.swift */,
 				36553AAF381017A74F7645A3 /* SyncStatus.swift */,
 			);
@@ -91,6 +99,7 @@
 			children = (
 				FCF9CEA0CF7829BF9A6D3124 /* AccountSection.swift */,
 				2648874E13E8A3AF0FA82051 /* CategoryDetailView.swift */,
+				B3934199693E70C8EA9132EA /* ConnectGuideView.swift */,
 				BFA020D8EC59095C8EF1BFE8 /* DisclosureGateView.swift */,
 				2728578EE26B525DA5A7CC7C /* MetricPickerView.swift */,
 				47D2C8BF5671881B10E96292 /* RootView.swift */,
@@ -217,6 +226,8 @@
 				B317865AEBCB123CBDC5F307 /* AccountStore.swift in Sources */,
 				CB824554CB8125267B35B757 /* Backend.swift in Sources */,
 				2F0671A89B38F7BFD8DA373F /* CategoryDetailView.swift in Sources */,
+				F42AEEE4E15017B77E107FA9 /* CategorySync.swift in Sources */,
+				5E20C556B967757D002749B3 /* ConnectGuideView.swift in Sources */,
 				11EDC7911624EEC79CF82EC1 /* DisclosureGateView.swift in Sources */,
 				2E733EB70DFE3D79968AE120 /* HealthAccess.swift in Sources */,
 				1C7537EBAD46F7A95D99AA39 /* HealthSync.swift in Sources */,
@@ -225,6 +236,7 @@
 				5065DB1D8A0961F29BEA6FFC /* MetricSelection.swift in Sources */,
 				7E91BBDBB67D6DD9431FC696 /* MetricUnits.swift in Sources */,
 				FBD546E8CF0A69B708AF07FB /* RootView.swift in Sources */,
+				CD6D6E66816F872D65857EE2 /* SyncLog.swift in Sources */,
 				5AA1ADBBD7318802DEEA0B9E /* SyncRows.swift in Sources */,
 				B92A1BE01BB184DC465C4B0D /* SyncStatus.swift in Sources */,
 				0D5E99F6AF206384858BBAD9 /* SyncStatusCard.swift in Sources */,

@@ -34,7 +34,7 @@ describe("DemoStore", () => {
 
     const day = await store.dailySummary("u", "2026-06-10");
     expect(day.metrics.every((m) => shared.has(m.metricKey))).toBe(true);
-    expect(await store.trends("u", "sexual_activity", 14)).toEqual([]);
+    expect((await store.trends("u", ["sexual_activity"], 14)).sexual_activity).toEqual([]);
   });
 
   it("returns a deterministic daily summary for a given date", async () => {
@@ -77,8 +77,46 @@ describe("DemoStore", () => {
   });
 
   it("returns an ascending trend series of the requested length", async () => {
-    const points = await new DemoStore(REF).trends("u", "step_count", 14);
+    const series = await new DemoStore(REF).trends("u", ["step_count"], 14);
+    const points = series.step_count!;
     expect(points).toHaveLength(14);
     expect(points[0]!.date < points[points.length - 1]!.date).toBe(true);
+  });
+
+  it("returns several metrics from a single trends call", async () => {
+    const series = await new DemoStore(REF).trends(
+      "u",
+      ["step_count", "resting_heart_rate", "not_a_metric"],
+      7,
+    );
+    expect(Object.keys(series).sort()).toEqual([
+      "not_a_metric",
+      "resting_heart_rate",
+      "step_count",
+    ]);
+    expect(series.step_count).toHaveLength(7);
+    // Requested but unknown: an empty series, not a missing key, so the caller
+    // can tell "nothing recorded" from "never asked for".
+    expect(series.not_a_metric).toEqual([]);
+  });
+
+  it("reports whether a shared metric actually has data", async () => {
+    const metrics = await new DemoStore(REF).listMetrics("u");
+    for (const metric of metrics) {
+      expect(metric).toHaveProperty("hasData");
+      expect(metric.lastDate).toBe("2026-06-19");
+    }
+  });
+
+  it("summarises every category in one overview call", async () => {
+    const overview = await new DemoStore(REF).overview("u", 30);
+    expect(overview.windowDays).toBe(30);
+    expect(Object.keys(overview.byCategory)).toContain("activity");
+    const activity = overview.byCategory.activity!;
+    const steps = activity.find((m) => m.metricKey === "step_count")!;
+    expect(steps.average7).toBeGreaterThan(0);
+    expect(steps.minimum).toBeLessThanOrEqual(steps.maximum!);
+    expect(overview.sleep.length).toBeGreaterThan(0);
+    expect(overview.trainingLoad.acuteKcalPerDay).toBeGreaterThan(0);
   });
 });

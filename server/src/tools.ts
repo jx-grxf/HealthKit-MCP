@@ -28,17 +28,43 @@ export function registerTools(server: McpServer, ctx: Ctx): void {
     {
       title: "List available metrics",
       description:
-        "Lists the health metrics this user has chosen to share, with their units and " +
-        "how each is aggregated per day. Call this first: the set is user-specific and " +
-        "open-ended (Apple Health exposes ~190 types), and any metric not listed here " +
-        "is not available — it is withheld by the user's consent settings, not missing " +
-        "data. Use the returned `metricKey` values with get_health_trends.",
+        "Lists the health metrics this user shares, with units, aggregation, and " +
+        "whether any data has actually arrived (`hasData`, `firstDate`, `lastDate`, " +
+        "`dayCount`). Call this first. Sharing and having data are different: a metric " +
+        "may be shared with `hasData: false` because nothing was ever recorded. Any " +
+        "metric absent from this list is withheld by the user's consent settings, not " +
+        "merely empty. Use the `metricKey` values with get_health_trends.",
       inputSchema: {},
       annotations: { readOnlyHint: true, openWorldHint: false },
     },
     async () => {
       const metrics = await ctx.store.listMetrics(ctx.resolveUserId());
-      return result({ metrics, count: metrics.length });
+      return result({
+        metrics,
+        count: metrics.length,
+        withData: metrics.filter((m) => m.hasData).length,
+      });
+    },
+  );
+
+  server.registerTool(
+    "get_health_overview",
+    {
+      title: "Health overview",
+      description:
+        "The whole picture in one call: every shared metric summarised over a window " +
+        "(latest value, 7- and 30-day averages, min, max, days of data), grouped by " +
+        "category, plus recent sleep, recent workouts and training load. Prefer this " +
+        "over calling get_health_trends repeatedly — it is the right tool for broad " +
+        "questions like overall fitness, recovery or how the last month went.",
+      inputSchema: {
+        windowDays: z.number().int().min(2).max(365).default(30),
+      },
+      annotations: { readOnlyHint: true, openWorldHint: false },
+    },
+    async ({ windowDays }) => {
+      const overview = await ctx.store.overview(ctx.resolveUserId(), windowDays);
+      return result(overview);
     },
   );
 
@@ -69,8 +95,11 @@ export function registerTools(server: McpServer, ctx: Ctx): void {
     {
       title: "Sleep summary",
       description:
-        "Sleep stages (in-bed, asleep, REM, deep, core, awake) per night. " +
-        "Pass `date` for one night, or `days` for the most recent N nights.",
+        "Sleep stages (in-bed, asleep, REM, deep, core, awake) per night, in minutes. " +
+        "Pass `date` for one night, or `days` for the most recent N nights. Fields are " +
+        "null when HealthKit has no samples of that stage — modern Apple Watch " +
+        "recordings often omit in-bed entirely, so `inBedMinutes: null` is normal and " +
+        "not an error. Short sessions (well under an hour) are naps rather than nights.",
       inputSchema: {
         date: z
           .string()
@@ -140,25 +169,28 @@ export function registerTools(server: McpServer, ctx: Ctx): void {
     {
       title: "Health trends",
       description:
-        "Daily time series for one metric over a window, for trend analysis. " +
-        "`metric` is a metricKey from list_available_metrics; an unknown or " +
-        "un-shared key returns an empty series.",
+        "Daily time series for one or more metrics over a window. Pass several " +
+        "metricKeys in one call rather than calling repeatedly. An unknown or " +
+        "un-shared key returns an empty series for that key.",
       inputSchema: {
         metric: z
-          .string()
-          .min(1)
-          .describe('metricKey from list_available_metrics, e.g. "step_count".'),
+          .union([z.string().min(1), z.array(z.string().min(1)).min(1).max(40)])
+          .describe(
+            'One metricKey or an array of them, from list_available_metrics, e.g. "step_count".',
+          ),
         windowDays: z.number().int().min(2).max(180).default(30),
       },
       annotations: { readOnlyHint: true, openWorldHint: false },
     },
     async ({ metric, windowDays }) => {
-      const points = await ctx.store.trends(
-        ctx.resolveUserId(),
-        metric,
-        windowDays,
-      );
-      return result({ metric, windowDays, points });
+      const keys = Array.isArray(metric) ? metric : [metric];
+      const series = await ctx.store.trends(ctx.resolveUserId(), keys, windowDays);
+      // A single-metric request keeps its original shape so existing callers
+      // do not have to change.
+      if (!Array.isArray(metric)) {
+        return result({ metric, windowDays, points: series[metric] ?? [] });
+      }
+      return result({ windowDays, series });
     },
   );
 }
