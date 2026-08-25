@@ -4,14 +4,9 @@ export default function Privacy() {
   return (
     <main>
       <h1>Privacy Policy</h1>
-      <p>
-        <strong>Draft — review before publishing.</strong> Controller identity and
-        contact details must be completed, and the wording checked against your
-        obligations, before this is linked from the App Store.
-      </p>
 
       <h2>Controller</h2>
-      <p>[Full legal name and postal address]. Contact: [email address].</p>
+      <p>Johannes Grof. Contact: contact@johannesgrof.me.</p>
 
       <h2>What is processed</h2>
       <p>
