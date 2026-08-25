@@ -38,9 +38,13 @@ struct MetricPickerView: View {
                             .foregroundStyle(.secondary)
                         }
                         LabeledContent("Health access") {
-                            Text(status.hasRequestedHealthAccess
-                                 ? "Requested" : "Not requested yet")
-                                .foregroundStyle(.secondary)
+                            // Each branch must stay a literal so both reach
+                            // the String Catalog.
+                            if status.hasRequestedHealthAccess {
+                                Text("Requested").foregroundStyle(.secondary)
+                            } else {
+                                Text("Not requested yet").foregroundStyle(.secondary)
+                            }
                         }
                         Button("Authorize") {
                             Task { await authorize() }
