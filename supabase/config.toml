@@ -326,9 +326,16 @@ max_frequency = "5s"
 # Use an external OAuth provider. The full list of providers are: `apple`, `azure`, `bitbucket`,
 # `discord`, `facebook`, `github`, `gitlab`, `google`, `keycloak`, `linkedin_oidc`, `notion`, `twitch`,
 # `twitter`, `x`, `slack`, `spotify`, `workos`, `zoom`.
+# Sign in with Apple. client_id carries both identifiers: the Services ID for
+# the web flow (the consent screen) and the bundle ID for native sign-in in the
+# iOS app, which uses signInWithIdToken and needs no secret.
+#
+# The secret is a JWT signed from AuthKey_27QZ387A9Y.p8 and Apple caps it at six
+# months — regenerate before 2027-02-24 or sign-in breaks. The .p8 and the
+# current secret are in the 1Password "wavelet" vault.
 [auth.external.apple]
-enabled = false
-client_id = ""
+enabled = true
+client_id = "me.johannesgrof.wavelet.web,me.johannesgrof.wavelet"
 # DO NOT commit your OAuth provider secret to git. Use environment variable substitution instead:
 secret = "env(SUPABASE_AUTH_EXTERNAL_APPLE_SECRET)"
 # Overrides the default auth callback URL derived from auth.external_url.
