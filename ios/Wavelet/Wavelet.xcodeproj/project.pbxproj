@@ -10,13 +10,20 @@
 		0D5E99F6AF206384858BBAD9 /* SyncStatusCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F65C5E84E0D4188346AFFE /* SyncStatusCard.swift */; };
 		11EDC7911624EEC79CF82EC1 /* DisclosureGateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA020D8EC59095C8EF1BFE8 /* DisclosureGateView.swift */; };
 		126118109E28694930D6580C /* MetricCatalog.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A27277D6B5C3684593F23D /* MetricCatalog.generated.swift */; };
+		1C7537EBAD46F7A95D99AA39 /* HealthSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB00AFC61FBB6F79500B728D /* HealthSync.swift */; };
 		230728BF1908DB5F1B976B57 /* WaveletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AE50B8B5C55E63714ED216 /* WaveletApp.swift */; };
 		2E733EB70DFE3D79968AE120 /* HealthAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785F9C270D86337EE0936F9B /* HealthAccess.swift */; };
 		2F0671A89B38F7BFD8DA373F /* CategoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2648874E13E8A3AF0FA82051 /* CategoryDetailView.swift */; };
 		3CFA96F7BA21C1558CC16EFA /* MetricPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2728578EE26B525DA5A7CC7C /* MetricPickerView.swift */; };
 		5065DB1D8A0961F29BEA6FFC /* MetricSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9167E3A408148F7C8D5CB97 /* MetricSelection.swift */; };
+		5AA1ADBBD7318802DEEA0B9E /* SyncRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A586D755CDDE9462E3629C /* SyncRows.swift */; };
+		74697963952A0DFCB092E342 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = E40D8A313FEF5E3D4601A10E /* Supabase */; };
+		7E91BBDBB67D6DD9431FC696 /* MetricUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64C7555EA90285B72EED6D1 /* MetricUnits.swift */; };
+		A4766B7605793DAC2A98A44C /* AccountSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF9CEA0CF7829BF9A6D3124 /* AccountSection.swift */; };
 		AEDE9CF27552BC7B7A41D9ED /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F7A52688756BD3D1FA6DCEF0 /* Localizable.xcstrings */; };
+		B317865AEBCB123CBDC5F307 /* AccountStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5EEBE26C922F9F9461682 /* AccountStore.swift */; };
 		B92A1BE01BB184DC465C4B0D /* SyncStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36553AAF381017A74F7645A3 /* SyncStatus.swift */; };
+		CB824554CB8125267B35B757 /* Backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C06CE6CF8A53B0B8AC1BDA7 /* Backend.swift */; };
 		FBD546E8CF0A69B708AF07FB /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D2C8BF5671881B10E96292 /* RootView.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +33,7 @@
 		2648874E13E8A3AF0FA82051 /* CategoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailView.swift; sourceTree = "<group>"; };
 		2728578EE26B525DA5A7CC7C /* MetricPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricPickerView.swift; sourceTree = "<group>"; };
 		36553AAF381017A74F7645A3 /* SyncStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncStatus.swift; sourceTree = "<group>"; };
+		3C06CE6CF8A53B0B8AC1BDA7 /* Backend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backend.swift; sourceTree = "<group>"; };
 		47D2C8BF5671881B10E96292 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		55A27277D6B5C3684593F23D /* MetricCatalog.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricCatalog.generated.swift; sourceTree = "<group>"; };
 		785F9C270D86337EE0936F9B /* HealthAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthAccess.swift; sourceTree = "<group>"; };
@@ -34,16 +42,35 @@
 		A7FD08DB52BB24A5575CE90C /* Wavelet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wavelet.entitlements; sourceTree = "<group>"; };
 		BFA020D8EC59095C8EF1BFE8 /* DisclosureGateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclosureGateView.swift; sourceTree = "<group>"; };
 		C9167E3A408148F7C8D5CB97 /* MetricSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricSelection.swift; sourceTree = "<group>"; };
+		D64C7555EA90285B72EED6D1 /* MetricUnits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricUnits.swift; sourceTree = "<group>"; };
+		DB00AFC61FBB6F79500B728D /* HealthSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthSync.swift; sourceTree = "<group>"; };
+		DDF5EEBE26C922F9F9461682 /* AccountStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountStore.swift; sourceTree = "<group>"; };
+		E0A586D755CDDE9462E3629C /* SyncRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncRows.swift; sourceTree = "<group>"; };
 		F7A52688756BD3D1FA6DCEF0 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		FCF9CEA0CF7829BF9A6D3124 /* AccountSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		56BA76DF35ACA90F05725912 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74697963952A0DFCB092E342 /* Supabase in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		03197961877DB974380B06C1 /* Health */ = {
 			isa = PBXGroup;
 			children = (
 				785F9C270D86337EE0936F9B /* HealthAccess.swift */,
+				DB00AFC61FBB6F79500B728D /* HealthSync.swift */,
 				55A27277D6B5C3684593F23D /* MetricCatalog.generated.swift */,
 				C9167E3A408148F7C8D5CB97 /* MetricSelection.swift */,
+				D64C7555EA90285B72EED6D1 /* MetricUnits.swift */,
+				E0A586D755CDDE9462E3629C /* SyncRows.swift */,
 				36553AAF381017A74F7645A3 /* SyncStatus.swift */,
 			);
 			path = Health;
@@ -62,6 +89,7 @@
 		40C749D439D94FC40C9FDEF2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FCF9CEA0CF7829BF9A6D3124 /* AccountSection.swift */,
 				2648874E13E8A3AF0FA82051 /* CategoryDetailView.swift */,
 				BFA020D8EC59095C8EF1BFE8 /* DisclosureGateView.swift */,
 				2728578EE26B525DA5A7CC7C /* MetricPickerView.swift */,
@@ -83,11 +111,21 @@
 			isa = PBXGroup;
 			children = (
 				09AE50B8B5C55E63714ED216 /* WaveletApp.swift */,
+				C10B5381FF3BEF4D61CDE919 /* Backend */,
 				03197961877DB974380B06C1 /* Health */,
 				3906F956FA27613083D68B03 /* Support */,
 				40C749D439D94FC40C9FDEF2 /* Views */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		C10B5381FF3BEF4D61CDE919 /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				DDF5EEBE26C922F9F9461682 /* AccountStore.swift */,
+				3C06CE6CF8A53B0B8AC1BDA7 /* Backend.swift */,
+			);
+			path = Backend;
 			sourceTree = "<group>";
 		};
 		F3E04DB51A1399CCBC0D7AB2 /* Products */ = {
@@ -107,6 +145,7 @@
 			buildPhases = (
 				475F46B995CB72DD51B633E1 /* Sources */,
 				12F81B392C6D924C40B5FDC3 /* Resources */,
+				56BA76DF35ACA90F05725912 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -114,6 +153,7 @@
 			);
 			name = Wavelet;
 			packageProductDependencies = (
+				E40D8A313FEF5E3D4601A10E /* Supabase */,
 			);
 			productName = Wavelet;
 			productReference = 22881D1451AC2F7B7A7D847A /* Wavelet.app */;
@@ -144,6 +184,9 @@
 			);
 			mainGroup = 45C98E8E8913E216BBD18AF2;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				23C569D56A4E978603A733CE /* XCRemoteSwiftPackageReference "supabase-swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F3E04DB51A1399CCBC0D7AB2 /* Products */;
 			projectDirPath = "";
@@ -170,13 +213,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4766B7605793DAC2A98A44C /* AccountSection.swift in Sources */,
+				B317865AEBCB123CBDC5F307 /* AccountStore.swift in Sources */,
+				CB824554CB8125267B35B757 /* Backend.swift in Sources */,
 				2F0671A89B38F7BFD8DA373F /* CategoryDetailView.swift in Sources */,
 				11EDC7911624EEC79CF82EC1 /* DisclosureGateView.swift in Sources */,
 				2E733EB70DFE3D79968AE120 /* HealthAccess.swift in Sources */,
+				1C7537EBAD46F7A95D99AA39 /* HealthSync.swift in Sources */,
 				126118109E28694930D6580C /* MetricCatalog.generated.swift in Sources */,
 				3CFA96F7BA21C1558CC16EFA /* MetricPickerView.swift in Sources */,
 				5065DB1D8A0961F29BEA6FFC /* MetricSelection.swift in Sources */,
+				7E91BBDBB67D6DD9431FC696 /* MetricUnits.swift in Sources */,
 				FBD546E8CF0A69B708AF07FB /* RootView.swift in Sources */,
+				5AA1ADBBD7318802DEEA0B9E /* SyncRows.swift in Sources */,
 				B92A1BE01BB184DC465C4B0D /* SyncStatus.swift in Sources */,
 				0D5E99F6AF206384858BBAD9 /* SyncStatusCard.swift in Sources */,
 				230728BF1908DB5F1B976B57 /* WaveletApp.swift in Sources */,
@@ -377,6 +426,25 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		23C569D56A4E978603A733CE /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E40D8A313FEF5E3D4601A10E /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23C569D56A4E978603A733CE /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 872BCE8B7489A492ED8873E1 /* Project object */;
 }

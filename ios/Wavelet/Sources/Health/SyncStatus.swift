@@ -18,6 +18,12 @@ enum SyncState: Sendable, Equatable {
 @MainActor
 final class SyncStatus {
     private(set) var state: SyncState = .notConfigured
+    /// Rows written by the last successful sync, for an honest "it did something".
+    var lastRowCount: Int = 0
+
+    func set(_ next: SyncState) { state = next }
+
+    var isSyncing: Bool { if case .syncing = state { true } else { false } }
 
     /// Whether HealthKit authorization has been requested at least once.
     /// iOS never discloses whether read access was *granted*, so this is
