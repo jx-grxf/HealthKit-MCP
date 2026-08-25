@@ -1,7 +1,9 @@
 import SwiftUI
 
-/// Category overview. The full catalog is far too long for one flat list, so
-/// categories are the top level and each opens its own toggle list.
+/// Category browser.
+///
+/// The full catalog is far too long for one flat list, so categories are the
+/// top level and each opens its own toggle list. Search cuts across all of them.
 struct MetricPickerView: View {
     @Environment(MetricSelection.self) private var selection
     @Environment(SyncStatus.self) private var status
@@ -10,7 +12,8 @@ struct MetricPickerView: View {
     @State private var authorizationError: String?
 
     private var categories: [MetricCategory] {
-        MetricCategory.allCases.filter { !MetricCatalog.inCategory($0).isEmpty }
+        MetricCategory.allCases
+            .filter { !MetricCatalog.inCategory($0).isEmpty }
             .sorted { $0.title.localizedCompare($1.title) == .orderedAscending }
     }
 
@@ -25,36 +28,12 @@ struct MetricPickerView: View {
         NavigationStack {
             List {
                 if search.isEmpty {
-                    Section("Sync") {
-                        SyncStatusCard(status: status)
-                    }
-
-                    AccountSection()
-
-                    Section {
-                        NavigationLink {
-                            ConnectGuideView()
-                        } label: {
-                            Label("Connect an assistant", systemImage: "link")
-                        }
-                    }
-
                     Section {
                         LabeledContent("Selected") {
-                            Text(
-                                "\(selection.enabledCount) / \(MetricCatalog.available.count)"
-                            )
-                            .monospacedDigit()
-                            .foregroundStyle(.secondary)
-                        }
-                        LabeledContent("Health access") {
-                            // Each branch must stay a literal so both reach
-                            // the String Catalog.
-                            if status.hasRequestedHealthAccess {
-                                Text("Requested").foregroundStyle(.secondary)
-                            } else {
-                                Text("Not requested yet").foregroundStyle(.secondary)
-                            }
+                            Text("\(selection.enabledCount) / \(MetricCatalog.available.count)")
+                                .monospacedDigit()
+                                .foregroundStyle(.secondary)
+                                .contentTransition(.numericText())
                         }
                         Button("Authorize") {
                             Task { await authorize() }
@@ -64,8 +43,8 @@ struct MetricPickerView: View {
                         Text("iOS never reveals whether read access was granted. Wavelet shows what it can actually read once data arrives.")
                     }
 
-                    Section("Categories") {
-                        ForEach(categories) { category in
+                    ForEach(categories) { category in
+                        Section {
                             NavigationLink {
                                 CategoryDetailView(category: category)
                             } label: {
@@ -79,8 +58,9 @@ struct MetricPickerView: View {
                     }
                 }
             }
+            .animation(.smooth, value: selection.enabledCount)
             .searchable(text: $search, prompt: "Search health categories")
-            .navigationTitle("Wavelet")
+            .navigationTitle("Categories")
             .alert(
                 "Couldn't ask for access",
                 isPresented: .init(
@@ -107,6 +87,7 @@ struct MetricPickerView: View {
             Text(on == 0 ? "\(total)" : "\(on) / \(total)")
                 .font(.subheadline)
                 .monospacedDigit()
+                .contentTransition(.numericText())
                 .foregroundStyle(on == 0 ? AnyShapeStyle(.secondary) : AnyShapeStyle(.tint))
         }
     }
