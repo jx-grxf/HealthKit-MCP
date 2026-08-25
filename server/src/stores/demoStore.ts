@@ -2,22 +2,48 @@
  * In-memory demo store with deterministic synthetic data.
  *
  * Lets the MCP server run with zero backend so it can be wired into Claude
- * Code / Codex / ChatGPT immediately. Data is generated from the date string,
- * so the same date always yields the same values (stable across restarts and
- * easy to assert in tests).
+ * Code / Codex / ChatGPT immediately. Values are derived from the date and
+ * metric key, so the same input always yields the same output (stable across
+ * restarts and easy to assert in tests).
+ *
+ * The demo user has a fixed set of metrics "switched on". Anything outside that
+ * set behaves exactly as it would in production for a metric the user has not
+ * consented to: absent, not empty.
  */
 
 import type {
   DailyHealth,
   HealthStore,
+  MetricInfo,
+  MetricValue,
   SleepNight,
   TrainingLoad,
-  TrendMetric,
   TrendPoint,
   Workout,
 } from "../types.js";
 
 const WORKOUT_TYPES = ["running", "cycling", "strength", "walking"] as const;
+
+/** What the demo user shares, plus the range each value is generated in. */
+interface DemoMetric extends MetricInfo {
+  min: number;
+  max: number;
+}
+
+const DEMO_METRICS: DemoMetric[] = [
+  { metricKey: "step_count", displayName: "Steps", category: "activity", unit: "count", aggregation: "sum", sensitivity: "standard", min: 4000, max: 13000 },
+  { metricKey: "active_energy_burned", displayName: "Active Energy", category: "activity", unit: "kcal", aggregation: "sum", sensitivity: "standard", min: 300, max: 1000 },
+  { metricKey: "apple_exercise_time", displayName: "Exercise Minutes", category: "activity", unit: "min", aggregation: "sum", sensitivity: "standard", min: 10, max: 95 },
+  { metricKey: "flights_climbed", displayName: "Flights Climbed", category: "activity", unit: "count", aggregation: "sum", sensitivity: "standard", min: 2, max: 28 },
+  { metricKey: "resting_heart_rate", displayName: "Resting Heart Rate", category: "heart", unit: "count/min", aggregation: "avg", sensitivity: "standard", min: 52, max: 66 },
+  { metricKey: "heart_rate_variability_sdnn", displayName: "Heart Rate Variability (SDNN)", category: "heart", unit: "ms", aggregation: "avg", sensitivity: "standard", min: 35, max: 95 },
+  { metricKey: "respiratory_rate", displayName: "Respiratory Rate", category: "respiratory", unit: "count/min", aggregation: "avg", sensitivity: "standard", min: 12, max: 18 },
+  { metricKey: "oxygen_saturation", displayName: "Blood Oxygen", category: "vitals", unit: "percent", aggregation: "avg", sensitivity: "standard", min: 94, max: 99 },
+  { metricKey: "body_mass", displayName: "Body Mass", category: "body", unit: "kg", aggregation: "avg", sensitivity: "standard", min: 72, max: 76 },
+  { metricKey: "sleep_analysis", displayName: "Sleep Analysis", category: "sleep", unit: "min", aggregation: "duration", sensitivity: "standard", min: 360, max: 510 },
+];
+
+const BY_KEY = new Map(DEMO_METRICS.map((m) => [m.metricKey, m]));
 
 /** Tiny deterministic hash → [0, 1). No Math.random, so results are stable. */
 function seed(s: string): number {
@@ -40,22 +66,24 @@ function dateNDaysAgo(reference: Date, n: number): Date {
   return d;
 }
 
-function dayFor(date: string): DailyHealth {
-  const r = seed(date);
-  const r2 = seed(date + "x");
+function valueFor(metric: DemoMetric, date: string): number {
+  const r = seed(`${date}:${metric.metricKey}`);
+  return Math.round(metric.min + r * (metric.max - metric.min));
+}
+
+function metricValueFor(metric: DemoMetric, date: string): MetricValue {
   return {
-    date,
-    steps: Math.round(4000 + r * 9000),
-    activeEnergyKcal: Math.round(300 + r2 * 700),
-    restingHeartRateBpm: Math.round(52 + r * 14),
-    hrvSdnnMs: Math.round(35 + r2 * 60),
-    sleepMinutes: Math.round(360 + r * 150),
+    metricKey: metric.metricKey,
+    displayName: metric.displayName,
+    category: metric.category,
+    unit: metric.unit ?? "count",
+    value: valueFor(metric, date),
+    sampleCount: 1 + Math.round(seed(`${date}:${metric.metricKey}:n`) * 20),
   };
 }
 
 function sleepFor(date: string): SleepNight {
-  const day = dayFor(date);
-  const asleep = day.sleepMinutes ?? 420;
+  const asleep = valueFor(BY_KEY.get("sleep_analysis")!, date);
   const r = seed(date + "s");
   const deep = Math.round(asleep * (0.13 + r * 0.07));
   const rem = Math.round(asleep * (0.18 + r * 0.07));
@@ -85,8 +113,16 @@ export class DemoStore implements HealthStore {
     return ymd(dateNDaysAgo(this.reference, 1));
   }
 
+  async listMetrics(_userId: string): Promise<MetricInfo[]> {
+    return DEMO_METRICS.map(({ min: _min, max: _max, ...info }) => info);
+  }
+
   async dailySummary(_userId: string, date?: string): Promise<DailyHealth> {
-    return dayFor(date ?? this.latestDate());
+    const day = date ?? this.latestDate();
+    return {
+      date: day,
+      metrics: DEMO_METRICS.map((m) => metricValueFor(m, day)),
+    };
   }
 
   async sleep(
@@ -118,7 +154,8 @@ export class DemoStore implements HealthStore {
       const durationSeconds = Math.round(1500 + r * 4500);
       const start = new Date(`${date}T17:30:00.000Z`);
       const end = new Date(start.getTime() + durationSeconds * 1000);
-      const hasDistance = type === "running" || type === "cycling" || type === "walking";
+      const hasDistance =
+        type === "running" || type === "cycling" || type === "walking";
       out.push({
         id: `demo-${date}`,
         type,
@@ -134,18 +171,15 @@ export class DemoStore implements HealthStore {
     return out;
   }
 
-  async trainingLoad(_userId: string, windowDays: number): Promise<TrainingLoad> {
-    const days: DailyHealth[] = [];
+  async trainingLoad(userId: string, windowDays: number): Promise<TrainingLoad> {
+    const energy = BY_KEY.get("active_energy_burned")!;
+    const daily: number[] = [];
     for (let i = 1; i <= 28; i++) {
-      days.push(dayFor(ymd(dateNDaysAgo(this.reference, i))));
+      daily.push(valueFor(energy, ymd(dateNDaysAgo(this.reference, i))));
     }
-    const avg = (xs: number[]) =>
-      xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : 0;
-    const energy = (slice: DailyHealth[]) =>
-      slice.map((d) => d.activeEnergyKcal ?? 0);
-    const acute = avg(energy(days.slice(0, 7)));
-    const chronic = avg(energy(days.slice(0, 28)));
-    const workouts = await this.recentWorkouts(_userId, { limit: 100 });
+    const acute = avg(daily.slice(0, 7));
+    const chronic = avg(daily.slice(0, 28));
+    const workouts = await this.recentWorkouts(userId, { limit: 100 });
     return {
       windowDays,
       acuteKcalPerDay: Math.round(acute),
@@ -161,16 +195,24 @@ export class DemoStore implements HealthStore {
 
   async trends(
     _userId: string,
-    metric: TrendMetric,
+    metricKey: string,
     windowDays: number,
   ): Promise<TrendPoint[]> {
+    const metric = BY_KEY.get(metricKey);
+    // Unknown or un-shared metric: no series, mirroring production behaviour
+    // where the consent join simply returns nothing.
+    if (!metric) return [];
     const out: TrendPoint[] = [];
     for (let i = windowDays; i >= 1; i--) {
       const date = ymd(dateNDaysAgo(this.reference, i));
-      out.push({ date, value: dayFor(date)[metric] });
+      out.push({ date, value: valueFor(metric, date) });
     }
     return out;
   }
+}
+
+function avg(xs: number[]): number {
+  return xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : 0;
 }
 
 function round2(n: number): number {
