@@ -70,7 +70,11 @@ export function createHttpApp(config: Config, store: HealthStore) {
       }
 
       const server = new McpServer({ name: "healthkit-mcp", version: SERVER_VERSION });
-      registerTools(server, { store, resolveUserId: () => userId });
+      registerTools(server, {
+        store,
+        resolveUserId: () => userId,
+        clientId: () => req.auth?.clientId ?? null,
+      });
 
       const transport = new StreamableHTTPServerTransport({
         sessionIdGenerator: undefined,

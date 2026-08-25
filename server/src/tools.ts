@@ -13,6 +13,32 @@ interface Ctx {
   store: HealthStore;
   /** Resolves the user whose data a request may read. */
   resolveUserId: () => string;
+  /** Identifies the calling agent, when the transport knows it. */
+  clientId?: () => string | null;
+}
+
+/**
+ * Runs a tool and records that it ran.
+ *
+ * Every read is auditable by the user: the point of the whole system is that
+ * they can see what their assistants actually looked at, which requires the log
+ * to be written on the read path rather than as an afterthought.
+ */
+async function audited<T>(
+  ctx: Ctx,
+  tool: string,
+  params: Record<string, unknown>,
+  run: (userId: string) => Promise<T>,
+): Promise<T> {
+  const userId = ctx.resolveUserId();
+  const outcome = await run(userId);
+  void ctx.store.logAccess({
+    userId,
+    tool,
+    params,
+    client: ctx.clientId?.() ?? null,
+  });
+  return outcome;
 }
 
 function result(payload: unknown) {
@@ -38,7 +64,9 @@ export function registerTools(server: McpServer, ctx: Ctx): void {
       annotations: { readOnlyHint: true, openWorldHint: false },
     },
     async () => {
-      const metrics = await ctx.store.listMetrics(ctx.resolveUserId());
+      const metrics = await audited(ctx, "list_available_metrics", {}, (u) =>
+        ctx.store.listMetrics(u),
+      );
       return result({
         metrics,
         count: metrics.length,
@@ -63,7 +91,9 @@ export function registerTools(server: McpServer, ctx: Ctx): void {
       annotations: { readOnlyHint: true, openWorldHint: false },
     },
     async ({ windowDays }) => {
-      const overview = await ctx.store.overview(ctx.resolveUserId(), windowDays);
+      const overview = await audited(ctx, "get_health_overview", { windowDays }, (u) =>
+        ctx.store.overview(u, windowDays),
+      );
       return result(overview);
     },
   );
@@ -85,7 +115,9 @@ export function registerTools(server: McpServer, ctx: Ctx): void {
       annotations: { readOnlyHint: true, openWorldHint: false },
     },
     async ({ date }) => {
-      const day = await ctx.store.dailySummary(ctx.resolveUserId(), date);
+      const day = await audited(ctx, "get_daily_health_summary", { date }, (u) =>
+        ctx.store.dailySummary(u, date),
+      );
       return result({ day });
     },
   );
@@ -117,7 +149,9 @@ export function registerTools(server: McpServer, ctx: Ctx): void {
       annotations: { readOnlyHint: true, openWorldHint: false },
     },
     async ({ date, days }) => {
-      const nights = await ctx.store.sleep(ctx.resolveUserId(), { date, days });
+      const nights = await audited(ctx, "get_sleep_summary", { date, days }, (u) =>
+        ctx.store.sleep(u, { date, days }),
+      );
       return result({ nights });
     },
   );
@@ -138,10 +172,9 @@ export function registerTools(server: McpServer, ctx: Ctx): void {
       annotations: { readOnlyHint: true, openWorldHint: false },
     },
     async ({ limit, type }) => {
-      const workouts = await ctx.store.recentWorkouts(ctx.resolveUserId(), {
-        limit,
-        type,
-      });
+      const workouts = await audited(ctx, "list_recent_workouts", { limit, type }, (u) =>
+        ctx.store.recentWorkouts(u, { limit, type }),
+      );
       return result({ workouts });
     },
   );
@@ -159,7 +192,9 @@ export function registerTools(server: McpServer, ctx: Ctx): void {
       annotations: { readOnlyHint: true, openWorldHint: false },
     },
     async ({ windowDays }) => {
-      const load = await ctx.store.trainingLoad(ctx.resolveUserId(), windowDays);
+      const load = await audited(ctx, "get_training_load", { windowDays }, (u) =>
+        ctx.store.trainingLoad(u, windowDays),
+      );
       return result(load);
     },
   );
@@ -184,7 +219,9 @@ export function registerTools(server: McpServer, ctx: Ctx): void {
     },
     async ({ metric, windowDays }) => {
       const keys = Array.isArray(metric) ? metric : [metric];
-      const series = await ctx.store.trends(ctx.resolveUserId(), keys, windowDays);
+      const series = await audited(ctx, "get_health_trends", { metric, windowDays }, (u) =>
+        ctx.store.trends(u, keys, windowDays),
+      );
       // A single-metric request keeps its original shape so existing callers
       // do not have to change.
       if (!Array.isArray(metric)) {

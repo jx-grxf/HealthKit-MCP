@@ -13,6 +13,7 @@
 
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import type {
+  AccessEntry,
   Aggregation,
   DailyHealth,
   HealthOverview,
@@ -56,6 +57,21 @@ export class SupabaseStore implements HealthStore {
       lastDate: (r.last_date as string) ?? null,
       dayCount: Number(r.day_count ?? 0),
     }));
+  }
+
+  async logAccess(entry: AccessEntry): Promise<void> {
+    // Deliberately swallows failures. The audit trail is for the user's benefit;
+    // losing one line is far better than failing a read they asked for.
+    try {
+      await this.db.from("mcp_access_log").insert({
+        user_id: entry.userId,
+        tool: entry.tool,
+        params: entry.params,
+        client: entry.client,
+      });
+    } catch {
+      // ignored on purpose
+    }
   }
 
   async overview(userId: string, windowDays: number): Promise<HealthOverview> {

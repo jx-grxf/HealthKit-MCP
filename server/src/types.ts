@@ -57,6 +57,14 @@ export interface MetricSummary {
   dayCount: number;
 }
 
+/** One agent read, for the user's own audit trail. */
+export interface AccessEntry {
+  userId: string;
+  tool: string;
+  params: Record<string, unknown>;
+  client: string | null;
+}
+
 /** Everything an agent needs to answer a broad question in one call. */
 export interface HealthOverview {
   windowDays: number;
@@ -134,6 +142,9 @@ export interface HealthStore {
   listMetrics(userId: string): Promise<MetricInfo[]>;
   /** Whole-picture summary, so broad questions cost one call, not 133. */
   overview(userId: string, windowDays: number): Promise<HealthOverview>;
+  /** Records that an agent read something. Never throws: an audit failure must
+   *  not turn a successful read into an error the user sees. */
+  logAccess(entry: AccessEntry): Promise<void>;
   dailySummary(userId: string, date?: string): Promise<DailyHealth | null>;
   sleep(
     userId: string,

@@ -12,6 +12,7 @@
  */
 
 import type {
+  AccessEntry,
   DailyHealth,
   HealthOverview,
   MetricSummary,
@@ -125,6 +126,10 @@ export class DemoStore implements HealthStore {
       lastDate: this.latestDate(),
       dayCount: 30,
     }));
+  }
+
+  async logAccess(_entry: AccessEntry): Promise<void> {
+    // Demo mode has no backend to audit against.
   }
 
   async overview(userId: string, windowDays: number): Promise<HealthOverview> {
