@@ -22,3 +22,7 @@ ios/**/xcuserdata/
 # Supabase local
 supabase/.branches/
 supabase/.temp/
+
+# Python tooling
+__pycache__/
+*.pyc

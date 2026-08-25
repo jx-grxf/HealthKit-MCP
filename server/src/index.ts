@@ -2,10 +2,11 @@
 /**
  * HealthKit MCP server entry point.
  *
- * Default transport is stdio, for local agents (Claude Code, Codex, Claude
- * Desktop). The remote HTTP transport — with OAuth 2.1 + RFC 9728 for ChatGPT
- * and Claude custom connectors — is tracked in docs/ROADMAP.md and not yet
- * wired here.
+ * Two transports:
+ *   stdio — local agents (Claude Code, Codex, Claude Desktop). No auth; the
+ *           user is fixed by configuration.
+ *   http  — Streamable HTTP + OAuth 2.1 for ChatGPT and Claude connectors. The
+ *           user is the token subject, resolved per request.
  */
 
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
@@ -13,6 +14,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { loadConfig } from "./config.js";
 import { DemoStore } from "./stores/demoStore.js";
 import { SupabaseStore } from "./stores/supabaseStore.js";
+import { createHttpApp } from "./httpServer.js";
 import { registerTools } from "./tools.js";
 import type { HealthStore } from "./types.js";
 
@@ -23,6 +25,17 @@ async function main(): Promise<void> {
     config.useSupabase
       ? new SupabaseStore(config.supabaseUrl!, config.supabaseServiceRoleKey!)
       : new DemoStore();
+
+  if (config.transport === "http") {
+    const app = createHttpApp(config, store);
+    app.listen(config.port, () => {
+      console.error(
+        `healthkit-mcp listening on :${config.port} ` +
+          `(source: ${config.useSupabase ? "supabase" : "demo"}, resource: ${config.resourceUrl})`,
+      );
+    });
+    return;
+  }
 
   const server = new McpServer({
     name: "healthkit-mcp",
@@ -35,13 +48,6 @@ async function main(): Promise<void> {
     // HTTP build will replace this with the OAuth token subject.
     resolveUserId: () => config.userId,
   });
-
-  if (config.transport !== "stdio") {
-    throw new Error(
-      `Transport "${config.transport}" is not implemented yet. Use stdio. ` +
-        "See docs/ROADMAP.md for the remote HTTP + OAuth plan.",
-    );
-  }
 
   const transport = new StdioServerTransport();
   await server.connect(transport);

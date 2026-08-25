@@ -7,15 +7,7 @@
 
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
-import type { HealthStore, TrendMetric } from "./types.js";
-
-const TREND_METRICS = [
-  "steps",
-  "activeEnergyKcal",
-  "restingHeartRateBpm",
-  "hrvSdnnMs",
-  "sleepMinutes",
-] as const;
+import type { HealthStore } from "./types.js";
 
 interface Ctx {
   store: HealthStore;
@@ -32,11 +24,30 @@ function result(payload: unknown) {
 
 export function registerTools(server: McpServer, ctx: Ctx): void {
   server.registerTool(
+    "list_available_metrics",
+    {
+      title: "List available metrics",
+      description:
+        "Lists the health metrics this user has chosen to share, with their units and " +
+        "how each is aggregated per day. Call this first: the set is user-specific and " +
+        "open-ended (Apple Health exposes ~190 types), and any metric not listed here " +
+        "is not available — it is withheld by the user's consent settings, not missing " +
+        "data. Use the returned `metricKey` values with get_health_trends.",
+      inputSchema: {},
+      annotations: { readOnlyHint: true, openWorldHint: false },
+    },
+    async () => {
+      const metrics = await ctx.store.listMetrics(ctx.resolveUserId());
+      return result({ metrics, count: metrics.length });
+    },
+  );
+
+  server.registerTool(
     "get_daily_health_summary",
     {
       title: "Daily health summary",
       description:
-        "Steps, active energy, resting heart rate, HRV and sleep for one day. " +
+        "Every metric the user shares, for one day, with its value and unit. " +
         "Omit `date` to get the most recent day available.",
       inputSchema: {
         date: z
@@ -129,9 +140,14 @@ export function registerTools(server: McpServer, ctx: Ctx): void {
     {
       title: "Health trends",
       description:
-        "Daily time series for one metric over a window, for trend analysis.",
+        "Daily time series for one metric over a window, for trend analysis. " +
+        "`metric` is a metricKey from list_available_metrics; an unknown or " +
+        "un-shared key returns an empty series.",
       inputSchema: {
-        metric: z.enum(TREND_METRICS).describe("Which metric to trend."),
+        metric: z
+          .string()
+          .min(1)
+          .describe('metricKey from list_available_metrics, e.g. "step_count".'),
         windowDays: z.number().int().min(2).max(180).default(30),
       },
       annotations: { readOnlyHint: true, openWorldHint: false },
@@ -139,7 +155,7 @@ export function registerTools(server: McpServer, ctx: Ctx): void {
     async ({ metric, windowDays }) => {
       const points = await ctx.store.trends(
         ctx.resolveUserId(),
-        metric as TrendMetric,
+        metric,
         windowDays,
       );
       return result({ metric, windowDays, points });

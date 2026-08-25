@@ -1,28 +1,32 @@
 /**
- * Supabase-backed store. Reads daily aggregates and workouts written by the
- * iOS app, scoped to a single user. Uses the service-role key, so every query
- * filters explicitly by `user_id` — the server is the trust boundary that maps
- * an authenticated identity to its own rows.
+ * Supabase-backed store.
+ *
+ * Reads aggregates written by the iOS app, scoped to a single user. It uses the
+ * service-role key, which bypasses Row-Level Security — so this class is the
+ * trust boundary and every query filters explicitly by `user_id`.
+ *
+ * It also reads *only* the `shared_*` views, never the underlying tables. Those
+ * views inner-join `user_metric_settings`, so a metric the user has not
+ * switched on cannot be returned even by a buggy query here. The consent
+ * toggle is enforced by the database, not by this code.
  */
 
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import type {
+  Aggregation,
   DailyHealth,
   HealthStore,
+  MetricInfo,
+  MetricValue,
+  Sensitivity,
   SleepNight,
   TrainingLoad,
-  TrendMetric,
   TrendPoint,
   Workout,
 } from "../types.js";
 
-const METRIC_COLUMNS: Record<TrendMetric, string> = {
-  steps: "steps",
-  activeEnergyKcal: "active_energy_kcal",
-  restingHeartRateBpm: "resting_hr_bpm",
-  hrvSdnnMs: "hrv_sdnn_ms",
-  sleepMinutes: "sleep_minutes",
-};
+/** Metric used for training load. Present in the catalog seed. */
+const ENERGY_METRIC = "active_energy_burned";
 
 export class SupabaseStore implements HealthStore {
   private readonly db: SupabaseClient;
@@ -33,17 +37,51 @@ export class SupabaseStore implements HealthStore {
     });
   }
 
-  async dailySummary(userId: string, date?: string): Promise<DailyHealth | null> {
-    let q = this.db
-      .from("health_days")
+  async listMetrics(userId: string): Promise<MetricInfo[]> {
+    const { data, error } = await this.db
+      .from("shared_metrics")
       .select("*")
       .eq("user_id", userId)
-      .order("date", { ascending: false })
-      .limit(1);
-    if (date) q = q.eq("date", date);
-    const { data, error } = await q.maybeSingle();
+      .order("category", { ascending: true })
+      .order("metric_key", { ascending: true });
     if (error) throw error;
-    return data ? mapDay(data) : null;
+    return (data ?? []).map((r: Record<string, unknown>) => ({
+      metricKey: String(r.metric_key),
+      displayName: String(r.display_name),
+      category: String(r.category),
+      unit: (r.canonical_unit as string) ?? null,
+      aggregation: r.aggregation as Aggregation,
+      sensitivity: r.sensitivity as Sensitivity,
+    }));
+  }
+
+  async dailySummary(userId: string, date?: string): Promise<DailyHealth | null> {
+    const day = date ?? (await this.latestDate(userId));
+    if (!day) return null;
+
+    const { data, error } = await this.db
+      .from("shared_metric_days")
+      .select("*")
+      .eq("user_id", userId)
+      .eq("date", day)
+      .order("category", { ascending: true });
+    if (error) throw error;
+    if (!data || data.length === 0) return null;
+
+    return { date: day, metrics: data.map(mapMetricValue) };
+  }
+
+  /** Most recent day this user has any shared data for. */
+  private async latestDate(userId: string): Promise<string | null> {
+    const { data, error } = await this.db
+      .from("shared_metric_days")
+      .select("date")
+      .eq("user_id", userId)
+      .order("date", { ascending: false })
+      .limit(1)
+      .maybeSingle();
+    if (error) throw error;
+    return data ? String(data.date) : null;
   }
 
   async sleep(
@@ -51,7 +89,7 @@ export class SupabaseStore implements HealthStore {
     opts: { date?: string; days: number },
   ): Promise<SleepNight[]> {
     let q = this.db
-      .from("sleep_nights")
+      .from("shared_sleep_nights")
       .select("*")
       .eq("user_id", userId)
       .order("date", { ascending: false });
@@ -66,7 +104,7 @@ export class SupabaseStore implements HealthStore {
     opts: { limit: number; type?: string },
   ): Promise<Workout[]> {
     let q = this.db
-      .from("workouts")
+      .from("shared_workouts")
       .select("*")
       .eq("user_id", userId)
       .order("start_at", { ascending: false })
@@ -78,26 +116,23 @@ export class SupabaseStore implements HealthStore {
   }
 
   async trainingLoad(userId: string, windowDays: number): Promise<TrainingLoad> {
-    const since = isoDaysAgo(28);
     const { data, error } = await this.db
-      .from("health_days")
-      .select("date, active_energy_kcal")
+      .from("shared_metric_days")
+      .select("date, value")
       .eq("user_id", userId)
-      .gte("date", since)
+      .eq("metric_key", ENERGY_METRIC)
+      .gte("date", isoDaysAgo(28))
       .order("date", { ascending: false });
     if (error) throw error;
-    const rows = data ?? [];
-    const energy = (cut: string) =>
-      rows
-        .filter((r) => r.date >= cut)
-        .map((r) => Number(r.active_energy_kcal ?? 0));
-    const avg = (xs: number[]) =>
-      xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : 0;
-    const acute = avg(energy(isoDaysAgo(7)));
-    const chronic = avg(energy(isoDaysAgo(28)));
+
+    const rows = (data ?? []) as Array<{ date: string; value: number | null }>;
+    const energySince = (cut: string) =>
+      rows.filter((r) => r.date >= cut).map((r) => Number(r.value ?? 0));
+    const acute = avg(energySince(isoDaysAgo(7)));
+    const chronic = avg(energySince(isoDaysAgo(28)));
 
     const { count } = await this.db
-      .from("workouts")
+      .from("shared_workouts")
       .select("id", { count: "exact", head: true })
       .eq("user_id", userId)
       .gte("start_at", `${isoDaysAgo(windowDays)}T00:00:00Z`);
@@ -106,30 +141,27 @@ export class SupabaseStore implements HealthStore {
       windowDays,
       acuteKcalPerDay: Math.round(acute),
       chronicKcalPerDay: Math.round(chronic),
-      acuteChronicRatio:
-        chronic > 0 ? Math.round((acute / chronic) * 100) / 100 : null,
+      acuteChronicRatio: chronic > 0 ? round2(acute / chronic) : null,
       workoutCount: count ?? 0,
     };
   }
 
   async trends(
     userId: string,
-    metric: TrendMetric,
+    metricKey: string,
     windowDays: number,
   ): Promise<TrendPoint[]> {
-    const column = METRIC_COLUMNS[metric];
-    // The column is chosen at runtime, which supabase-js's typed `select()`
-    // can't model, so select the row and pick the column ourselves.
     const { data, error } = await this.db
-      .from("health_days")
-      .select("*")
+      .from("shared_metric_days")
+      .select("date, value")
       .eq("user_id", userId)
+      .eq("metric_key", metricKey)
       .gte("date", isoDaysAgo(windowDays))
       .order("date", { ascending: true });
     if (error) throw error;
     return ((data ?? []) as Array<Record<string, unknown>>).map((r) => ({
       date: String(r.date),
-      value: num(r[column]),
+      value: num(r.value),
     }));
   }
 }
@@ -140,18 +172,26 @@ function isoDaysAgo(n: number): string {
   return d.toISOString().slice(0, 10);
 }
 
+function avg(xs: number[]): number {
+  return xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : 0;
+}
+
+function round2(n: number): number {
+  return Math.round(n * 100) / 100;
+}
+
 function num(v: unknown): number | null {
   return v === null || v === undefined ? null : Number(v);
 }
 
-function mapDay(r: Record<string, unknown>): DailyHealth {
+function mapMetricValue(r: Record<string, unknown>): MetricValue {
   return {
-    date: String(r.date),
-    steps: num(r.steps),
-    activeEnergyKcal: num(r.active_energy_kcal),
-    restingHeartRateBpm: num(r.resting_hr_bpm),
-    hrvSdnnMs: num(r.hrv_sdnn_ms),
-    sleepMinutes: num(r.sleep_minutes),
+    metricKey: String(r.metric_key),
+    displayName: String(r.display_name),
+    category: String(r.category),
+    unit: String(r.unit),
+    value: num(r.value),
+    sampleCount: Number(r.sample_count ?? 0),
   };
 }
 

@@ -1,0 +1,382 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0D5E99F6AF206384858BBAD9 /* SyncStatusCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F65C5E84E0D4188346AFFE /* SyncStatusCard.swift */; };
+		11EDC7911624EEC79CF82EC1 /* DisclosureGateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA020D8EC59095C8EF1BFE8 /* DisclosureGateView.swift */; };
+		126118109E28694930D6580C /* MetricCatalog.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A27277D6B5C3684593F23D /* MetricCatalog.generated.swift */; };
+		230728BF1908DB5F1B976B57 /* WaveletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AE50B8B5C55E63714ED216 /* WaveletApp.swift */; };
+		2E733EB70DFE3D79968AE120 /* HealthAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785F9C270D86337EE0936F9B /* HealthAccess.swift */; };
+		2F0671A89B38F7BFD8DA373F /* CategoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2648874E13E8A3AF0FA82051 /* CategoryDetailView.swift */; };
+		3CFA96F7BA21C1558CC16EFA /* MetricPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2728578EE26B525DA5A7CC7C /* MetricPickerView.swift */; };
+		5065DB1D8A0961F29BEA6FFC /* MetricSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9167E3A408148F7C8D5CB97 /* MetricSelection.swift */; };
+		AEDE9CF27552BC7B7A41D9ED /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F7A52688756BD3D1FA6DCEF0 /* Localizable.xcstrings */; };
+		B92A1BE01BB184DC465C4B0D /* SyncStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36553AAF381017A74F7645A3 /* SyncStatus.swift */; };
+		FBD546E8CF0A69B708AF07FB /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D2C8BF5671881B10E96292 /* RootView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		09AE50B8B5C55E63714ED216 /* WaveletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveletApp.swift; sourceTree = "<group>"; };
+		22881D1451AC2F7B7A7D847A /* Wavelet.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Wavelet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2648874E13E8A3AF0FA82051 /* CategoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailView.swift; sourceTree = "<group>"; };
+		2728578EE26B525DA5A7CC7C /* MetricPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricPickerView.swift; sourceTree = "<group>"; };
+		36553AAF381017A74F7645A3 /* SyncStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncStatus.swift; sourceTree = "<group>"; };
+		47D2C8BF5671881B10E96292 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		55A27277D6B5C3684593F23D /* MetricCatalog.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricCatalog.generated.swift; sourceTree = "<group>"; };
+		785F9C270D86337EE0936F9B /* HealthAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthAccess.swift; sourceTree = "<group>"; };
+		88F65C5E84E0D4188346AFFE /* SyncStatusCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncStatusCard.swift; sourceTree = "<group>"; };
+		94266C7664FEB783669C5212 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A7FD08DB52BB24A5575CE90C /* Wavelet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wavelet.entitlements; sourceTree = "<group>"; };
+		BFA020D8EC59095C8EF1BFE8 /* DisclosureGateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclosureGateView.swift; sourceTree = "<group>"; };
+		C9167E3A408148F7C8D5CB97 /* MetricSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricSelection.swift; sourceTree = "<group>"; };
+		F7A52688756BD3D1FA6DCEF0 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		03197961877DB974380B06C1 /* Health */ = {
+			isa = PBXGroup;
+			children = (
+				785F9C270D86337EE0936F9B /* HealthAccess.swift */,
+				55A27277D6B5C3684593F23D /* MetricCatalog.generated.swift */,
+				C9167E3A408148F7C8D5CB97 /* MetricSelection.swift */,
+				36553AAF381017A74F7645A3 /* SyncStatus.swift */,
+			);
+			path = Health;
+			sourceTree = "<group>";
+		};
+		3906F956FA27613083D68B03 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				94266C7664FEB783669C5212 /* Info.plist */,
+				F7A52688756BD3D1FA6DCEF0 /* Localizable.xcstrings */,
+				A7FD08DB52BB24A5575CE90C /* Wavelet.entitlements */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		40C749D439D94FC40C9FDEF2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2648874E13E8A3AF0FA82051 /* CategoryDetailView.swift */,
+				BFA020D8EC59095C8EF1BFE8 /* DisclosureGateView.swift */,
+				2728578EE26B525DA5A7CC7C /* MetricPickerView.swift */,
+				47D2C8BF5671881B10E96292 /* RootView.swift */,
+				88F65C5E84E0D4188346AFFE /* SyncStatusCard.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		45C98E8E8913E216BBD18AF2 = {
+			isa = PBXGroup;
+			children = (
+				71FAFF81C266E642A1258044 /* Sources */,
+				F3E04DB51A1399CCBC0D7AB2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		71FAFF81C266E642A1258044 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				09AE50B8B5C55E63714ED216 /* WaveletApp.swift */,
+				03197961877DB974380B06C1 /* Health */,
+				3906F956FA27613083D68B03 /* Support */,
+				40C749D439D94FC40C9FDEF2 /* Views */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		F3E04DB51A1399CCBC0D7AB2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				22881D1451AC2F7B7A7D847A /* Wavelet.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B61A6470F61A7D8F51208990 /* Wavelet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 08855AF922ED2AB36AF6DE67 /* Build configuration list for PBXNativeTarget "Wavelet" */;
+			buildPhases = (
+				475F46B995CB72DD51B633E1 /* Sources */,
+				12F81B392C6D924C40B5FDC3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Wavelet;
+			packageProductDependencies = (
+			);
+			productName = Wavelet;
+			productReference = 22881D1451AC2F7B7A7D847A /* Wavelet.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		872BCE8B7489A492ED8873E1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					B61A6470F61A7D8F51208990 = {
+						DevelopmentTeam = M45V83ZMD8;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 20C4E4CDD7EAC8C2174252F5 /* Build configuration list for PBXProject "Wavelet" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				de,
+				en,
+			);
+			mainGroup = 45C98E8E8913E216BBD18AF2;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = F3E04DB51A1399CCBC0D7AB2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B61A6470F61A7D8F51208990 /* Wavelet */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		12F81B392C6D924C40B5FDC3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEDE9CF27552BC7B7A41D9ED /* Localizable.xcstrings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		475F46B995CB72DD51B633E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F0671A89B38F7BFD8DA373F /* CategoryDetailView.swift in Sources */,
+				11EDC7911624EEC79CF82EC1 /* DisclosureGateView.swift in Sources */,
+				2E733EB70DFE3D79968AE120 /* HealthAccess.swift in Sources */,
+				126118109E28694930D6580C /* MetricCatalog.generated.swift in Sources */,
+				3CFA96F7BA21C1558CC16EFA /* MetricPickerView.swift in Sources */,
+				5065DB1D8A0961F29BEA6FFC /* MetricSelection.swift in Sources */,
+				FBD546E8CF0A69B708AF07FB /* RootView.swift in Sources */,
+				B92A1BE01BB184DC465C4B0D /* SyncStatus.swift in Sources */,
+				0D5E99F6AF206384858BBAD9 /* SyncStatusCard.swift in Sources */,
+				230728BF1908DB5F1B976B57 /* WaveletApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		02769D2E04573F4DD7092CCB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Sources/Support/Wavelet.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Sources/Support/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.johannesgrof.wavelet;
+				PRODUCT_NAME = Wavelet;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		4B825D198F0C4826C8E3DC42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = M45V83ZMD8;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		D0EC2B54E6EA020F61BFEF5E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = M45V83ZMD8;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		FAA76653280312617FC3C654 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Sources/Support/Wavelet.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Sources/Support/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.johannesgrof.wavelet;
+				PRODUCT_NAME = Wavelet;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		08855AF922ED2AB36AF6DE67 /* Build configuration list for PBXNativeTarget "Wavelet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAA76653280312617FC3C654 /* Debug */,
+				02769D2E04573F4DD7092CCB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		20C4E4CDD7EAC8C2174252F5 /* Build configuration list for PBXProject "Wavelet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0EC2B54E6EA020F61BFEF5E /* Debug */,
+				4B825D198F0C4826C8E3DC42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 872BCE8B7489A492ED8873E1 /* Project object */;
+}
