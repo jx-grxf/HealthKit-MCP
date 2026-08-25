@@ -3,10 +3,9 @@ import Observation
 
 /// Truthful state of the summary upload.
 ///
-/// It reports `.notConfigured` until an account exists, rather than pretending
-/// to be idle. A sync indicator that looks healthy while nothing is syncing is
-/// worse than no indicator at all — the user would believe their assistants
-/// have current data when they do not.
+/// Reports `.notConfigured` until an account exists rather than pretending to
+/// be idle. An indicator that looks healthy while nothing is syncing is worse
+/// than none: the user would believe their assistants have current data.
 enum SyncState: Sendable, Equatable {
     case notConfigured
     case idle(lastSync: Date?)
@@ -17,13 +16,12 @@ enum SyncState: Sendable, Equatable {
 @Observable
 @MainActor
 final class SyncStatus {
+    private static let lastSyncKey = "wavelet.lastSync.v1"
+
     private(set) var state: SyncState = .notConfigured
+
     /// Rows written by the last successful sync, for an honest "it did something".
     var lastRowCount: Int = 0
-
-    func set(_ next: SyncState) { state = next }
-
-    var isSyncing: Bool { if case .syncing = state { true } else { false } }
 
     /// Whether HealthKit authorization has been requested at least once.
     /// iOS never discloses whether read access was *granted*, so this is
@@ -35,18 +33,20 @@ final class SyncStatus {
         }
     }
 
-    private static let lastSyncKey = "wavelet.lastSync.v1"
-
     init() {
         hasRequestedHealthAccess =
             UserDefaults.standard.bool(forKey: "wavelet.healthRequested.v1")
     }
 
+    var isSyncing: Bool { if case .syncing = state { true } else { false } }
+
+    func set(_ next: SyncState) { state = next }
+
     /// Restores the card after a cold launch.
     ///
-    /// The state used to start at `.notConfigured` and nothing ever corrected
-    /// it, so a signed-in user who had already synced was told to sign in again
-    /// every time the app restarted.
+    /// State used to start at `.notConfigured` and nothing ever corrected it,
+    /// so a signed-in user who had already synced was told to sign in again on
+    /// every launch.
     func restore(isSignedIn: Bool) {
         guard isSignedIn else {
             state = .notConfigured
@@ -94,7 +94,7 @@ final class SyncStatus {
         }
     }
 
-    var tint: Color2 {
+    var tint: Tint {
         switch state {
         case .notConfigured, .idle(nil): .secondary
         case .idle: .good
@@ -104,5 +104,5 @@ final class SyncStatus {
     }
 
     /// Small indirection so this model stays free of SwiftUI.
-    enum Color2 { case secondary, good, bad }
+    enum Tint { case secondary, good, bad }
 }

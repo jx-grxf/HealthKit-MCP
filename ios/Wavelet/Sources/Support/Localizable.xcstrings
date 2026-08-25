@@ -23,6 +23,17 @@
         }
       }
     },
+    "About": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Über"
+          }
+        }
+      }
+    },
     "Account": {
       "extractionState": "manual",
       "localizations": {
@@ -89,6 +100,17 @@
         }
       }
     },
+    "Appearance": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Erscheinungsbild"
+          }
+        }
+      }
+    },
     "Appetite Changes": {
       "extractionState": "manual",
       "localizations": {
@@ -118,6 +140,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Frag: „Welche Gesundheitsdaten teile ich?“"
+          }
+        }
+      }
+    },
+    "Assistants": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Assistenten"
           }
         }
       }
@@ -562,6 +595,17 @@
         }
       }
     },
+    "Connection": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verbindung"
+          }
+        }
+      }
+    },
     "Constipation": {
       "extractionState": "manual",
       "localizations": {
@@ -716,6 +760,17 @@
         }
       }
     },
+    "Dark": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dunkel"
+          }
+        }
+      }
+    },
     "Diarrhea": {
       "extractionState": "manual",
       "localizations": {
@@ -800,6 +855,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Alle einschalten"
+          }
+        }
+      }
+    },
+    "Endpoint": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Endpunkt"
           }
         }
       }
@@ -1277,6 +1343,17 @@
         }
       }
     },
+    "Light": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hell"
+          }
+        }
+      }
+    },
     "Loss of Smell": {
       "extractionState": "manual",
       "localizations": {
@@ -1394,6 +1471,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Menstruationsfluss"
+          }
+        }
+      }
+    },
+    "Metrics in catalog": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Metriken im Katalog"
           }
         }
       }
@@ -1574,6 +1662,17 @@
         }
       }
     },
+    "Nothing read yet": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noch nichts gelesen"
+          }
+        }
+      }
+    },
     "Nothing selected yet": {
       "extractionState": "manual",
       "localizations": {
@@ -1636,6 +1735,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sonstiges"
+          }
+        }
+      }
+    },
+    "Overview": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Überblick"
           }
         }
       }
@@ -1882,6 +1992,17 @@
         }
       }
     },
+    "Requests": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anfragen"
+          }
+        }
+      }
+    },
     "Respiratory": {
       "extractionState": "manual",
       "localizations": {
@@ -2069,6 +2190,17 @@
         }
       }
     },
+    "Settings": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Einstellungen"
+          }
+        }
+      }
+    },
     "Sexual Activity": {
       "extractionState": "manual",
       "localizations": {
@@ -2076,6 +2208,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sexuelle Aktivität"
+          }
+        }
+      }
+    },
+    "Shared": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geteilt"
           }
         }
       }
@@ -2098,6 +2241,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Kurzatmigkeit"
+          }
+        }
+      }
+    },
+    "Sign in to see what assistants have read.": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Melde dich an, um zu sehen, was Assistenten gelesen haben."
           }
         }
       }
@@ -2443,6 +2597,28 @@
         }
       }
     },
+    "System": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "System"
+          }
+        }
+      }
+    },
+    "System follows your iPhone's light or dark setting.": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "„System“ folgt der Hell/Dunkel-Einstellung deines iPhones."
+          }
+        }
+      }
+    },
     "That means ChatGPT, Claude, and any other assistant you connect. They receive daily summaries — never your raw Health records.": {
       "extractionState": "manual",
       "localizations": {
@@ -2487,6 +2663,17 @@
         }
       }
     },
+    "Today": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Heute"
+          }
+        }
+      }
+    },
     "Toothbrushing": {
       "extractionState": "manual",
       "localizations": {
@@ -2494,6 +2681,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Zähneputzen"
+          }
+        }
+      }
+    },
+    "Total": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gesamt"
           }
         }
       }
@@ -2582,6 +2780,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Vaginale Trockenheit"
+          }
+        }
+      }
+    },
+    "Version": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Version"
           }
         }
       }
@@ -2806,6 +3015,17 @@
         }
       }
     },
+    "Wavelet reads only the categories you switch on, summarises them on this iPhone, and never uses your health data for advertising or profiling.": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wavelet liest nur die Kategorien, die du einschaltest, fasst sie auf diesem iPhone zusammen und nutzt deine Gesundheitsdaten nie für Werbung oder Profiling."
+          }
+        }
+      }
+    },
     "Wavelet totals each day on your iPhone and syncs the totals. Individual measurements never leave the device.": {
       "extractionState": "manual",
       "localizations": {
@@ -2835,6 +3055,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Pfeifende Atmung"
+          }
+        }
+      }
+    },
+    "When an assistant reads your summaries, every request appears here.": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sobald ein Assistent deine Zusammenfassungen liest, erscheint jede Anfrage hier."
           }
         }
       }
@@ -2923,6 +3154,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "iOS gibt nie preis, ob Lesezugriff gewährt wurde. Wavelet zeigt erst dann, was es wirklich lesen kann, wenn Daten ankommen."
+          }
+        }
+      }
+    },
+    "of %lld": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "von %lld"
           }
         }
       }
